@@ -1,3 +1,692 @@
+# 🔥 Core PHP
+
+## 1️⃣ Difference Between `==` and `===`
+
+- `==` → Compares value only (type conversion allowed)  
+- `===` → Compares value + type (strict comparison)  
+
+### Example:
+
+```php
+var_dump(5 == "5");   // true
+var_dump(5 === "5");  // false
+```
+
+---
+
+## 2️⃣ What Are Sessions in PHP?
+
+Sessions store user data on the **server side**.
+
+Used for:
+
+- Login authentication  
+- Shopping cart data  
+- User preferences  
+
+PHP stores the session ID in a cookie called `PHPSESSID`.
+
+---
+
+## 3️⃣ Difference Between `include` and `require`
+
+- `include` → Warning if file not found, script continues  
+- `require` → Fatal error if file not found, script stops  
+
+---
+
+# 🔥 1️⃣ Difference Between `include` and `include_once`
+
+## ✅ `include`
+
+- Includes a file  
+- If file not found → **Warning**  
+- Script continues execution  
+- Can include the same file multiple times  
+
+---
+
+## ✅ `include_once`
+
+- Includes a file only one time  
+- If the same file is included again → ignored  
+- Prevents redeclaration errors (functions/classes)  
+
+📌 Use `include_once` when the file contains functions or classes.
+
+---
+
+# 🔥 2️⃣ Difference Between `require` and `require_once`
+
+## ✅ `require`
+
+- Includes a file  
+- If file not found → **Fatal Error**  
+- Script stops execution  
+- Can include the same file multiple times  
+
+---
+
+## ✅ `require_once`
+
+- Includes file only once  
+- Stops script if file is missing  
+- Prevents duplicate class/function declaration  
+
+📌 In real projects, we usually use `require_once` for config files and autoload files.
+
+---
+
+# 🔥 3️⃣ Difference Between `echo` and `print_r()`
+
+## ✅ `echo`
+
+- Used to print string output  
+- Faster  
+- Can print multiple strings  
+- No return value  
+
+### Example:
+
+```php
+echo "Hello";
+```
+
+---
+
+## ✅ `print_r()`
+
+- Used to print arrays and objects (mainly for debugging)  
+- Shows structured, human-readable output  
+- Mostly used during development  
+
+### Example:
+
+```php
+print_r($array);
+```
+
+---
+
+📌 For debugging arrays → use `print_r()`  
+📌 For normal output → use `echo`
+
+---
+
+# 🔥 4️⃣ Difference Between Session and Cookies
+
+| Session | Cookies |
+|----------|----------|
+| Stored on server | Stored in browser |
+| More secure | Less secure |
+| Accessed via `$_SESSION` | Accessed via `$_COOKIE` |
+| Expires when session ends (by default) | Can have custom expiry time |
+| Used for login/authentication | Used for small data like "remember me" |
+
+---
+
+## 🎯 Strong Interview Line
+
+> Session stores data on the server, and only the session ID is stored in the cookie.
+
+---
+
+## 4️⃣ What Is Output Buffering?
+
+Output buffering stores output in memory before sending it to the browser.
+
+### Used For:
+
+- Modifying headers after output  
+- Improving performance  
+
+### Function:
+
+```php
+ob_start();
+```
+
+---
+
+## 5️⃣ How to Prevent SQL Injection?
+
+- Use prepared statements  
+- Use parameter binding (PDO / MySQLi)  
+- Never concatenate user input directly in queries  
+
+---
+
+## 6️⃣ What Are PHP Superglobals?
+
+Predefined global arrays:
+
+- `$_GET`  
+- `$_POST`  
+- `$_SESSION`  
+- `$_COOKIE`  
+- `$_SERVER`  
+- `$_FILES`  
+- `$_REQUEST`  
+
+---
+
+# ⚡ 2️⃣ Difference Between GET and POST
+
+## ✅ GET
+
+- Data sent in URL  
+- Limited length  
+- Less secure  
+- Used for fetching data  
+
+---
+
+## ✅ POST
+
+- Data sent in request body  
+- No practical size limit  
+- More secure than GET  
+- Used for form submission and sensitive data  
+
+---
+
+# 🔥 1️⃣ What Is Rate Limiting?
+
+## ✅ Definition
+
+Rate limiting restricts the number of requests a user/client can make to a server within a specific time period.
+
+### Example
+
+- Max 100 requests per minute per user  
+- 101st request → server blocks or returns **429 Too Many Requests**
+
+---
+
+## ✅ Why Rate Limiting Is Important
+
+- Prevent API abuse  
+- Stop brute-force attacks  
+- Protect server from overload  
+- Control resource usage  
+- Ensure fair usage for all users  
+
+---
+
+## ✅ Real-Life Examples
+
+- ATM machine → limited withdrawals per day  
+- OTP requests → max 3 per 10 minutes  
+
+---
+
+## ✅ Example in Laravel
+
+```php
+Route::middleware(['throttle:60,1'])->group(function () {
+    Route::get('/api/data', function () {
+        return response()->json(['data' => 'Limited']);
+    });
+});
+```
+
+- 60 requests per 1 minute  
+
+---
+
+## ✅ Example in Node.js (Express)
+
+```javascript
+const rateLimit = require("express-rate-limit");
+
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100 // limit each IP
+});
+
+app.use(limiter);
+```
+
+---
+
+# 🔥 2️⃣ What Is Throttling?
+
+## ✅ Definition
+
+Throttling controls the **speed of requests**, slowing them down instead of completely blocking.
+
+- Rate limiting → **block requests**  
+- Throttling → **slow down requests**
+
+### Example
+
+- First 50 requests → fast  
+- After that → 1-second delay per request  
+
+---
+
+## ✅ Where It’s Used
+
+- API gateways  
+- Network bandwidth control  
+- File uploads  
+- Search APIs  
+
+---
+
+## 🔥 Difference Between Rate Limiting and Throttling
+
+| Rate Limiting | Throttling |
+|---------------|------------|
+| Blocks requests after limit | Slows down requests |
+| Returns 429 error | Adds delay |
+| Strict control | Soft control |
+| Used for security | Used for performance |
+
+---
+
+## 🎯 Interview Smart Answer
+
+> Rate limiting restricts the number of API requests a client can make, usually returning a 429 error when exceeded.  
+> Throttling controls the speed of requests, slowing them down instead of blocking.  
+> Rate limiting → security/abuse prevention  
+> Throttling → performance management  
+
+---
+
+# 🔥 3️⃣ `fopen()` in PHP
+
+## ✅ Definition
+
+`fopen()` opens a file or URL and returns a **file pointer resource** to use with:
+
+- `fread()`  
+- `fwrite()`  
+- `fgets()`  
+- `fclose()`
+
+### Syntax
+
+```php
+fopen(filename, mode);
+```
+
+- `filename` → Path of file  
+- `mode` → How to open (read, write, append, etc.)
+
+---
+
+## 🔹 File Modes
+
+| Mode | Meaning |
+|------|---------|
+| r    | Read only (file must exist) |
+| r+   | Read + write |
+| w    | Write only (overwrite file) |
+| w+   | Read + write (overwrite) |
+| a    | Append (add data at end) |
+| a+   | Read + append |
+| x    | Create new file (error if exists) |
+
+---
+
+## 🔹 Example 1 – Read File
+
+```php
+$file = fopen("data.txt", "r");
+$content = fread($file, filesize("data.txt"));
+echo $content;
+fclose($file);
+```
+
+---
+
+## 🔹 Example 2 – Write File
+
+```php
+$file = fopen("data.txt", "w");
+fwrite($file, "Hello Krishna!");
+fclose($file);
+```
+
+⚠ Overwrites if file exists, creates if missing  
+
+---
+
+## 🔹 Example 3 – Append Data
+
+```php
+$file = fopen("data.txt", "a");
+fwrite($file, "\nNew Line Added");
+fclose($file);
+```
+
+---
+
+## 🔹 Important Points
+
+- Always use `fclose()` to free memory  
+- Handle errors properly:
+
+```php
+$file = fopen("data.txt", "r");
+if (!$file) {
+    die("Unable to open file.");
+}
+```
+
+- `fopen()` can open URLs if `allow_url_fopen` enabled  
+
+---
+
+## 🎯 Interview Short Answer
+
+> `fopen()` opens a file and returns a file resource for reading, writing, or appending.  
+> Must be used with `fread()`, `fwrite()`, and `fclose()` for proper file handling.
+
+---
+
+# 🔥 4️⃣ Difference Between `fopen()` and `file_get_contents()`
+
+## 1️⃣ `fopen()`
+
+- Opens a file → returns **file resource**  
+- Read/write line-by-line  
+- Best for large files, streaming, appending  
+- High control  
+
+### Example
+
+```php
+$file = fopen("data.txt", "r");
+while(!feof($file)) {
+    echo fgets($file);
+}
+fclose($file);
+```
+
+---
+
+## 2️⃣ `file_get_contents()`
+
+- Reads entire file at once → returns **string**  
+- Best for small files, JSON, API responses  
+- Simple and short  
+
+### Example
+
+```php
+$content = file_get_contents("data.txt");
+echo $content;
+```
+
+---
+
+## 🚀 Key Differences
+
+| Feature | fopen() | file_get_contents() |
+|---------|---------|-------------------|
+| Returns | File resource | String |
+| Reads   | Step-by-step | Entire file at once |
+| Writing support | ✅ Yes | ❌ No |
+| Large file handling | ✅ Better | ❌ Not recommended |
+| Control level | High | Low |
+| Code complexity | More | Simple |
+
+---
+
+## 🔥 When to Use
+
+✅ Use `fopen()`:
+
+- Large files  
+- Write/append  
+- Line-by-line reading  
+- Better memory control  
+
+✅ Use `file_get_contents()`:
+
+- Small files  
+- Quick read  
+- Fetching JSON / API response  
+
+---
+
+## 🎯 Interview Smart Answer
+
+> `fopen()` opens a file and returns a file resource for reading/writing/large files.  
+> `file_get_contents()` reads the entire file at once as a string, simpler but less memory-efficient for large files.
+
+---
+## 7️⃣ What Are Magic Methods?
+
+Special methods that start with `__`.
+
+### Examples:
+
+- `__construct()`  
+- `__destruct()`  
+- `__call()`  
+- `__get()`  
+- `__set()`  
+
+---
+
+## 8️⃣ What Is Late Static Binding?
+
+Allows static methods to refer to the **called class** instead of the parent class using `static::`.
+
+---
+
+# 🔥 OOP Concepts (9–12)
+
+## 9️⃣ What Are the 4 Pillars of OOP?
+
+- Encapsulation  
+- Abstraction  
+- Inheritance  
+- Polymorphism  
+
+---
+
+## 🔟 Difference Between Abstract Class and Interface
+
+| Abstract Class | Interface |
+|---------------|------------|
+| Can have method body | Only method declarations |
+| Can have properties | No properties |
+| Supports single inheritance | Multiple interfaces allowed |
+
+---
+
+## 1️⃣1️⃣ What Is a Trait?
+
+A Trait is used to reuse methods in multiple classes.
+
+It helps solve the **multiple inheritance problem** in PHP.
+
+---
+
+## 1️⃣2️⃣ What Is Dependency Injection?
+
+Dependency Injection means passing dependencies from outside instead of creating them inside the class.
+
+### Benefits:
+
+- Improves testability  
+- Reduces tight coupling  
+- Follows SOLID principles  
+
+---
+
+# 🔥 1️⃣ What Happens Internally When You Type a URL in Laravel?
+
+## ✅ Strong Answer (Request Lifecycle)
+
+1️⃣ Request hits `public/index.php`  
+2️⃣ Composer autoload loads the framework  
+3️⃣ HTTP Kernel handles the request  
+4️⃣ Global middleware runs  
+5️⃣ Route is matched  
+6️⃣ Controller action is executed  
+7️⃣ Response passes back through middleware  
+8️⃣ Response is sent back to the browser  
+
+🎯 If you clearly explain the Laravel request lifecycle, it creates a very strong impression.
+
+---
+
+# 🔥 2️⃣ What Is the N+1 Query Problem?
+
+## ✅ Problem Example
+
+If you fetch 100 users and for each user fetch posts separately:
+
+- 1 query for users  
+- 100 queries for posts  
+- Total = **101 queries**
+
+This is called the **N+1 problem**.
+
+---
+
+## ✅ Solution: Eager Loading
+
+```php
+User::with('posts')->get();
+```
+
+✔ Loads relationships in a single optimized query  
+✔ Improves performance  
+✔ Shows strong ORM understanding  
+
+---
+
+# 🔥 3️⃣ Difference Between `static`, `self`, and `$this`
+
+- `$this` → Refers to the current object instance  
+- `self::` → Refers to the current class (compile-time binding)  
+- `static::` → Refers to called class (late static binding, runtime binding)  
+
+🎯 This is a commonly asked and important OOP question.
+
+---
+
+# 🔥 4️⃣ How Does PHP Handle Sessions Internally?
+
+## ✅ Strong Answer
+
+- Session ID is stored in a browser cookie  
+- Session data is stored on the server (file by default)  
+- On each request, PHP reads the session file using the session ID  
+- Data is loaded into `$_SESSION`  
+
+## ✅ Session Drivers (Laravel)
+
+- `file`  
+- `redis`  
+- `database`  
+
+Mentioning session drivers gives extra points.
+
+---
+
+# 🔥 5️⃣ What Is OPcache?
+
+OPcache stores compiled PHP bytecode in memory.
+
+## Without OPcache:
+
+- PHP compiles script on every request  
+
+## With OPcache:
+
+- Cached bytecode is reused  
+- Performance improves significantly  
+
+---
+
+# 🔥 6️⃣ How Do You Prevent Race Conditions?
+
+## ✅ Example
+
+Two users updating the same wallet balance simultaneously.
+
+## ✅ Solutions
+
+- Database transactions  
+- Row-level locking (`SELECT ... FOR UPDATE`)  
+- Optimistic locking  
+- Atomic operations  
+
+🎯 Mentioning transactions and locking shows strong backend knowledge.
+
+---
+
+# 🔥 7️⃣ Explain SOLID Principles Briefly
+
+- **S** → Single Responsibility  
+- **O** → Open/Closed  
+- **L** → Liskov Substitution  
+- **I** → Interface Segregation  
+- **D** → Dependency Inversion  
+
+## 🎯 Real Example
+
+A Controller should not handle business logic directly.  
+Instead, move business logic into a Service class.
+
+Interviewers prefer practical examples over theory.
+
+---
+
+# 🔥 8️⃣ Difference Between `isset()` and `empty()`
+
+- `isset()` → Checks if variable exists and is not null  
+- `empty()` → Checks if variable is empty (`0`, `""`, `null`, `false`, `[]`)  
+
+⚠ Tricky Part:
+
+```php
+$value = 0;
+
+isset($value);  // true
+empty($value);  // true
+```
+
+`0` is considered empty, but it is set.
+
+---
+
+# 🔥 9️⃣ How Do You Secure a Laravel API?
+
+## ✅ Best Practices
+
+- Use Sanctum or JWT authentication  
+- Apply authentication middleware  
+- Use rate limiting  
+- Validate all inputs  
+- Use CSRF protection (for web routes)  
+- Hash passwords  
+- Always use HTTPS  
+
+🎯 Mentioning rate limiting and HTTPS sounds senior-level.
+
+---
+
+# 🔥 🔟 Difference Between Process and Thread
+
+- A **process** is an independent program instance  
+- A **thread** is a smaller execution unit inside a process  
+
+## In PHP:
+
+- PHP is mostly single-threaded per request  
+- Each request runs separately  
+- Laravel queue workers can run multiple processes  
+
+---
+
 # 4️⃣ Explain PHP Namespaces and Their Benefits
 
 ## ✅ What is a Namespace?
@@ -736,10 +1425,8 @@ DB::transaction(function() {
 
 ## ✅ What is CSRF?
 
-CSRF (Cross-Site Request Forgery) is an attack where:
-
-- A user is logged in  
-- An attacker tricks the user into submitting a malicious request  
+CSRF (Cross-Site Request Forgery) is an attack where a malicious site sends a request 
+using a logged-in user’s session.
 
 ---
 
@@ -756,6 +1443,9 @@ CSRF (Cross-Site Request Forgery) is an attack where:
 4️⃣ Middleware verifies the token  
 
 If the token is invalid → **419 error**.
+## 🔥 Strong Interview Line
+
+> Laravel automatically validates the CSRF token using the `VerifyCsrfToken` middleware.
 
 ---
 
@@ -824,3 +1514,196 @@ This prints raw HTML (not escaped).
 
 ---
 
+# 🔥 1️⃣ Wallet Balance Bug (Race Condition)
+
+## ✅ Scenario
+
+Two users try to withdraw money at the same time.  
+Wallet balance becomes negative.
+
+## ❓ How Will You Fix It?
+
+### ✅ Strong Answer
+
+- Use a database transaction  
+- Use `SELECT ... FOR UPDATE`  
+- Lock the row before updating  
+- Commit only after successful deduction  
+
+```php
+DB::transaction(function () use ($userId, $amount) {
+    $wallet = DB::table('wallets')
+        ->where('user_id', $userId)
+        ->lockForUpdate()
+        ->first();
+
+    if ($wallet->balance >= $amount) {
+        DB::table('wallets')
+            ->where('user_id', $userId)
+            ->update([
+                'balance' => $wallet->balance - $amount
+            ]);
+    } else {
+        throw new Exception("Insufficient balance");
+    }
+});
+```
+
+🎯 If you say “I will check balance before updating” → weak answer.  
+Race condition still possible without locking.
+
+---
+
+# 🔥 2️⃣ Website Suddenly Slow in Production
+
+## ✅ Scenario
+
+Site was working fine. Now response time is 6–7 seconds.
+
+## ❓ What Will You Check First?
+
+### ✅ Debugging Approach
+
+- Check slow queries (enable query log)  
+- Check N+1 problem  
+- Check missing indexes  
+- Check server CPU / RAM usage  
+- Check external API delays  
+- Check queue backlog  
+
+🎯 They want structured debugging thinking, not guessing.
+
+---
+
+# 🔥 3️⃣ Users Getting Logged Out Randomly
+
+## ✅ Possible Reasons
+
+- Session lifetime too low  
+- Session driver misconfigured  
+- Redis/file storage issue  
+- Load balancer without sticky sessions  
+
+🎯 Mentioning load balancer session issue = very impressive.
+
+---
+
+# 🔥 4️⃣ File Upload Works Locally but Fails on Server
+
+## ✅ What to Check?
+
+- `php.ini` → `upload_max_filesize`  
+- `post_max_size`  
+- File permissions  
+- Storage link:
+
+```bash
+php artisan storage:link
+```
+
+- Nginx / Apache configuration  
+
+🎯 Production awareness shows senior-level maturity.
+
+---
+
+# 🔥 5️⃣ Emails Not Sending in Production
+
+## ✅ Steps to Debug
+
+- Is queue worker running?  
+- Check `.env` mail configuration  
+- Check `failed_jobs` table  
+- Verify SMTP credentials  
+- Check firewall blocking mail port  
+
+🎯 Mentioning queue workers = senior-level answer.
+
+---
+
+# 🔥 6️⃣ API Suddenly Returning 500 Error
+
+## ✅ How to Debug in Production
+
+- Check logs (`storage/logs`)  
+- Check recent deployment changes  
+- Verify environment variables  
+- Enable error logging (not display errors)  
+- Rollback deployment if needed  
+
+🎯 Mentioning rollback strategy = impressive.
+
+---
+
+# 🔥 7️⃣ Payment Deducted but Order Not Created
+
+## ✅ Critical Scenario
+
+## ❓ What Should You Do?
+
+- Use DB transaction for order + payment update  
+- If one fails → rollback everything  
+- Use idempotency key for payment API  
+- Log every payment response  
+
+🎯 This checks architectural thinking and data consistency handling.
+
+---
+
+# 🔥 8️⃣ High CPU Usage on Server
+
+## ✅ What to Check?
+
+- Infinite loops?  
+- Heavy cron jobs?  
+- Queue workers stuck?  
+- Too many requests (DDoS)?  
+- Missing caching?  
+
+🎯 Mentioning rate limiting and caching = smart answer.
+
+---
+
+# 🔥 9️⃣ Data Mismatch Between Two Servers
+
+## ✅ Scenario
+
+Production has 2 servers behind load balancer.  
+Some users see different data.
+
+## ✅ Possible Causes
+
+- Session not centralized  
+- Cache not shared  
+- Database replication lag  
+
+🎯 Mention centralized Redis/session storage = advanced answer.
+
+---
+
+# 🔥 🔟 Memory Leak in PHP Script
+
+## ✅ Scenario
+
+Long-running script keeps increasing memory usage.
+
+## ✅ What to Check?
+
+- Unset large variables  
+- Chunk large queries  
+- Avoid loading huge collections  
+- Use `cursor()` instead of `get()`  
+
+### Example:
+
+```php
+User::chunk(100, function ($users) {
+    foreach ($users as $user) {
+        // process user
+    }
+});
+```
+
+✔ Shows real optimization knowledge  
+✔ Prevents memory overflow  
+✔ Suitable for large datasets  
