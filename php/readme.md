@@ -1,6 +1,6 @@
 # 🔥 Core PHP
 
-## 1️⃣ Difference Between `==` and `===`
+# 🔥 1️⃣ Difference Between `==` and `===`
 
 - `==` → Compares value only (type conversion allowed)  
 - `===` → Compares value + type (strict comparison)  
@@ -14,7 +14,7 @@ var_dump(5 === "5");  // false
 
 ---
 
-## 2️⃣ What Are Sessions in PHP?
+# 🔥 2️⃣ What Are Sessions in PHP?
 
 Sessions store user data on the **server side**.
 
@@ -28,19 +28,20 @@ PHP stores the session ID in a cookie called `PHPSESSID`.
 
 ---
 
-## 3️⃣ Difference Between `include` and `require`
+## 🔥 3️⃣ Difference Between `include` and `require`
 
 - `include` → Warning if file not found, script continues  
 - `require` → Fatal error if file not found, script stops  
 
 ---
 
-# 🔥 1️⃣ Difference Between `include` and `include_once`
+# 🔥 4️⃣ Difference Between `include` and `include_once`
 
 ## ✅ `include`
 
 - Includes a file  
-- If file not found → **Warning**  
+- If file not found → **Warning** 
+- Redeclaration errors (functions/classes)   
 - Script continues execution  
 - Can include the same file multiple times  
 
@@ -56,7 +57,7 @@ PHP stores the session ID in a cookie called `PHPSESSID`.
 
 ---
 
-# 🔥 2️⃣ Difference Between `require` and `require_once`
+# 🔥 5️⃣ Difference Between `require` and `require_once`
 
 ## ✅ `require`
 
@@ -77,7 +78,7 @@ PHP stores the session ID in a cookie called `PHPSESSID`.
 
 ---
 
-# 🔥 3️⃣ Difference Between `echo` and `print_r()`
+# 🔥 6️⃣ Difference Between `echo` and `print_r()`
 
 ## ✅ `echo`
 
@@ -113,7 +114,7 @@ print_r($array);
 
 ---
 
-# 🔥 4️⃣ Difference Between Session and Cookies
+# 🔥 7️⃣ Difference Between Session and Cookies
 
 | Session | Cookies |
 |----------|----------|
@@ -131,7 +132,7 @@ print_r($array);
 
 ---
 
-## 4️⃣ What Is Output Buffering?
+# 🔥7️⃣ What Is Output Buffering?
 
 Output buffering stores output in memory before sending it to the browser.
 
@@ -144,11 +145,13 @@ Output buffering stores output in memory before sending it to the browser.
 
 ```php
 ob_start();
+echo "Hello";
+$content = ob_get_clean();
 ```
 
 ---
 
-## 5️⃣ How to Prevent SQL Injection?
+# 🔥8️⃣ How to Prevent SQL Injection?
 
 - Use prepared statements  
 - Use parameter binding (PDO / MySQLi)  
@@ -156,7 +159,7 @@ ob_start();
 
 ---
 
-## 6️⃣ What Are PHP Superglobals?
+# 🔥9️⃣ What Are PHP Superglobals?
 
 Predefined global arrays:
 
@@ -170,7 +173,7 @@ Predefined global arrays:
 
 ---
 
-# ⚡ 2️⃣ Difference Between GET and POST
+# 🔥1️⃣0️⃣ Difference Between GET and POST
 
 ## ✅ GET
 
@@ -190,7 +193,7 @@ Predefined global arrays:
 
 ---
 
-# 🔥 1️⃣ What Is Rate Limiting?
+# 🔥1️⃣1️⃣ What Is Rate Limiting?
 
 ## ✅ Definition
 
@@ -249,7 +252,7 @@ app.use(limiter);
 
 ---
 
-# 🔥 2️⃣ What Is Throttling?
+# 🔥1️⃣2️⃣ What Is Throttling?
 
 ## ✅ Definition
 
@@ -274,7 +277,7 @@ Throttling controls the **speed of requests**, slowing them down instead of comp
 
 ---
 
-## 🔥 Difference Between Rate Limiting and Throttling
+# 🔥 Difference Between Rate Limiting and Throttling
 
 | Rate Limiting | Throttling |
 |---------------|------------|
@@ -294,7 +297,7 @@ Throttling controls the **speed of requests**, slowing them down instead of comp
 
 ---
 
-# 🔥 3️⃣ `fopen()` in PHP
+# 🔥1️⃣3️⃣ `fopen()` in PHP
 
 ## ✅ Definition
 
@@ -386,7 +389,7 @@ if (!$file) {
 
 ---
 
-# 🔥 4️⃣ Difference Between `fopen()` and `file_get_contents()`
+# 🔥1️⃣4️⃣ Difference Between `fopen()` and `file_get_contents()`
 
 ## 1️⃣ `fopen()`
 
@@ -435,7 +438,7 @@ echo $content;
 
 ---
 
-## 🔥 When to Use
+# 🔥 When to Use
 
 ✅ Use `fopen()`:
 
@@ -472,15 +475,15 @@ Special methods that start with `__`.
 
 ---
 
-## 8️⃣ What Is Late Static Binding?
+# 🔥1️⃣5️⃣ What Is Late Static Binding?
 
 Allows static methods to refer to the **called class** instead of the parent class using `static::`.
 
 ---
 
-# 🔥 OOP Concepts (9–12)
+# 🔥 OOP Concepts
 
-## 9️⃣ What Are the 4 Pillars of OOP?
+# 🔥 9️⃣ What Are the 4 Pillars of OOP?
 
 - Encapsulation  
 - Abstraction  
@@ -489,7 +492,7 @@ Allows static methods to refer to the **called class** instead of the parent cla
 
 ---
 
-## 🔟 Difference Between Abstract Class and Interface
+## 🔥 🔟 Difference Between Abstract Class and Interface
 
 | Abstract Class | Interface |
 |---------------|------------|
@@ -499,7 +502,7 @@ Allows static methods to refer to the **called class** instead of the parent cla
 
 ---
 
-## 1️⃣1️⃣ What Is a Trait?
+## 🔥 1️⃣1️⃣ What Is a Trait?
 
 A Trait is used to reuse methods in multiple classes.
 
@@ -507,7 +510,7 @@ It helps solve the **multiple inheritance problem** in PHP.
 
 ---
 
-## 1️⃣2️⃣ What Is Dependency Injection?
+## 🔥 1️⃣2️⃣ What Is Dependency Injection?
 
 Dependency Injection means passing dependencies from outside instead of creating them inside the class.
 
@@ -687,7 +690,7 @@ empty($value);  // true
 
 ---
 
-# 4️⃣ Explain PHP Namespaces and Their Benefits
+# 🔥 4️⃣ Explain PHP Namespaces and Their Benefits
 
 ## ✅ What is a Namespace?
 
@@ -720,7 +723,7 @@ $payment = new PaymentService();
 
 ---
 
-# 7️⃣ What is Output Buffering in PHP?
+# 🔥 7️⃣ What is Output Buffering in PHP?
 
 ## ✅ Definition
 
@@ -755,7 +758,7 @@ Now output is stored in `$content`.
 
 ---
 
-# 8️⃣ How Does PHP Handle Sessions Internally?
+# 🔥 8️⃣ How Does PHP Handle Sessions Internally?
 
 ## ✅ Step-by-Step Process
 
@@ -833,7 +836,7 @@ Parent
 
 ---
 
-# 1️⃣1️⃣ Explain All SOLID Principles
+# 🔥 1️⃣1️⃣ Explain All SOLID Principles
 
 Very important for 4+ years experience 🔥
 
@@ -894,7 +897,7 @@ Both should depend on abstractions.
 
 ---
 
-# 6️⃣ What is Dependency Injection?
+# 🔥 6️⃣ What is Dependency Injection?
 
 ## ✅ Definition
 
@@ -947,7 +950,7 @@ Now Laravel’s Service Container automatically injects it.
 
 ---
 
-# 7️⃣ Constructor Injection vs Method Injection
+# 🔥 7️⃣ Constructor Injection vs Method Injection
 
 ## 🔹 Constructor Injection
 
@@ -981,7 +984,7 @@ public function store(Request $request)
 
 ---
 
-# 8️⃣ Difference Between Composition and Inheritance
+# 🔥 8️⃣ Difference Between Composition and Inheritance
 
 ## 🔹 Inheritance → "is-a" Relationship
 
@@ -1027,7 +1030,7 @@ Car **has an** Engine.
 
 ---
 
-# 9️⃣ What Design Patterns Have You Used in PHP Projects?
+# 🔥 9️⃣ What Design Patterns Have You Used in PHP Projects?
 
 For 4+ years Laravel experience, you can say:
 
@@ -1057,7 +1060,7 @@ Laravel follows MVC architecture.
 
 ---
 
-# 🔟 Difference Between Jobs, Events, and Queues
+# 🔥 🔟 Difference Between Jobs, Events, and Queues
 
 ## 🔹 Job
 
@@ -1096,7 +1099,7 @@ Redis queue worker.
 
 ---
 
-# 1️⃣1️⃣ How Does Laravel Queue Work Internally?
+# 🔥 1️⃣1️⃣ How Does Laravel Queue Work Internally?
 
 ## ✅ Step-by-Step Internal Flow
 
@@ -1152,7 +1155,7 @@ Queues make heavy tasks asynchronous and improve performance.
 
 ---
 
-# 1️⃣2️⃣ How to Handle Failed Jobs?
+# 🔥 1️⃣2️⃣ How to Handle Failed Jobs?
 
 ## ✅ 1. Check Failed Jobs
 
@@ -1191,7 +1194,7 @@ public function failed(Exception $e) {
 
 ---
 
-# 1️⃣3️⃣ What is Route Model Binding?
+# 🔥 1️⃣3️⃣ What is Route Model Binding?
 
 Laravel automatically injects a model instance from a route parameter.
 
@@ -1231,7 +1234,7 @@ select * from users where id = ?
 
 ---
 
-# 1️⃣4️⃣ How to Process Millions of Records in Laravel?
+# 🔥 1️⃣4️⃣ How to Process Millions of Records in Laravel?
 
 ## ❌ Never Do This
 
@@ -1284,7 +1287,7 @@ foreach (User::cursor() as $user) {
 
 ---
 
-# 1️⃣5️⃣ Difference Between `chunk()` and `cursor()`
+# 🔥 1️⃣5️⃣ Difference Between `chunk()` and `cursor()`
 
 | chunk() | cursor() |
 |----------|----------|
@@ -1302,7 +1305,7 @@ foreach (User::cursor() as $user) {
 
 ---
 
-# 1️⃣6️⃣ How to Prevent Deadlocks in MySQL?
+# 🔥 1️⃣6️⃣ How to Prevent Deadlocks in MySQL?
 
 ## ✅ What is a Deadlock?
 
@@ -1370,7 +1373,7 @@ try {
 
 ---
 
-# 1️⃣7️⃣ Explain Database Transactions & Isolation Levels
+# 🔥 1️⃣7️⃣ Explain Database Transactions & Isolation Levels
 
 ## ✅ What is a Transaction?
 
@@ -1443,7 +1446,7 @@ using a logged-in user’s session.
 4️⃣ Middleware verifies the token  
 
 If the token is invalid → **419 error**.
-## 🔥 Strong Interview Line
+# 🔥 Strong Interview Line
 
 > Laravel automatically validates the CSRF token using the `VerifyCsrfToken` middleware.
 
@@ -1455,7 +1458,7 @@ All `POST`, `PUT`, `DELETE` routes are protected by CSRF middleware by default.
 
 ---
 
-# 1️⃣9️⃣ What is XSS? How to Prevent in PHP/Laravel?
+# 🔥 1️⃣9️⃣ What is XSS? How to Prevent in PHP/Laravel?
 
 ## ✅ What is XSS?
 
