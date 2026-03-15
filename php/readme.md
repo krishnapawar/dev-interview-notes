@@ -40,10 +40,10 @@ PHP stores the session ID in a cookie called `PHPSESSID`.
 ## ✅ `include`
 
 - Includes a file  
-- If file not found → **Warning** 
-- Redeclaration errors (functions/classes)   
+- If file not found → **Warning**   
 - Script continues execution  
 - Can include the same file multiple times  
+- Redeclaration errors (functions/classes) 
 
 ---
 
