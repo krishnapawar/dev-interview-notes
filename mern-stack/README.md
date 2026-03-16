@@ -1421,3 +1421,245 @@ Instead of updating the browser DOM directly, React:
 2. When state changes → creates **new Virtual DOM**
 3. Compares old Virtual DOM vs new Virtual DOM (**Diffing**)
 4. Updates **only the changed parts** in the Real DOM
+
+### Q: What types of API functions are used in Node.js?
+
+**Answer:**
+
+In Node.js, APIs are usually created using **HTTP methods**.
+
+#### Common API Methods
+
+| Method | Purpose | Example |
+|---|---|---|
+| `GET` | Fetch data | Get users |
+| `POST` | Create data | Add new user |
+| `PUT` | Update full data | Update user |
+| `PATCH` | Update partial data | Update user email |
+| `DELETE` | Remove data | Delete user |
+
+**Example (Node.js):**
+```javascript
+const http = require("http");
+
+http.createServer((req, res) => {
+  if (req.method === "GET") {
+    res.end("Get API Called");
+  }
+}).listen(3000);
+```
+
+---
+
+### Q: What is a Module in Node.js?
+
+**Answer:**
+
+A module is a **reusable block of code** that can be exported and imported into other files.
+
+Node.js uses the **CommonJS module system**.
+
+**`math.js`:**
+```javascript
+exports.add = (a, b) => {
+  return a + b;
+}
+```
+
+**`app.js`:**
+```javascript
+const math = require("./math");
+
+console.log(math.add(2, 3));
+```
+
+**Output:**
+```
+5
+```
+
+---
+
+### Q: Main Disadvantages of Node.js?
+
+**Answer:**
+
+1. **Not good for CPU-heavy tasks** — Node.js is single-threaded, so heavy computation can block the event loop.
+   - Examples: Video processing, large data calculation
+
+2. **Callback complexity** — Too many callbacks can create **callback hell**.
+
+3. **Immature libraries** *(earlier issue)* — Some npm packages may be unstable.
+
+4. **Debugging async code** can be difficult.
+
+---
+
+### Q: How to print "Hello" in Node.js without Express?
+
+**Answer:**
+```javascript
+const http = require("http");
+
+const server = http.createServer((req, res) => {
+  res.write("Hello");
+  res.end();
+});
+
+server.listen(3000);
+```
+
+Open in browser:
+```
+http://localhost:3000
+```
+
+**Output:**
+```
+Hello
+```
+
+---
+
+### Q: What is Buffer in Node.js?
+
+**Answer:**
+
+A **Buffer** is used to handle **binary data** directly in memory.
+
+Node.js uses buffers for:
+
+- File system operations
+- Streams
+- Network packets
+
+**Example:**
+```javascript
+const buffer = Buffer.from("Hello");
+
+console.log(buffer);
+```
+
+**Output:**
+```
+<Buffer 48 65 6c 6c 6f>
+```
+
+**Convert back to string:**
+```javascript
+console.log(buffer.toString());
+```
+
+**Output:**
+```
+Hello
+```
+
+---
+
+### Q: Difference Between Query Params and Request Params?
+
+**Answer:**
+
+#### Query Params
+
+Values sent in the URL **after `?`**
+
+**Example URL:**
+```
+/users?id=10&name=krishna
+```
+
+**Example:**
+```javascript
+app.get("/users", (req, res) => {
+  console.log(req.query.id);
+});
+```
+
+**Output:**
+```
+10
+```
+
+---
+
+#### Request Params (Route Params)
+
+Values embedded **inside the URL path**.
+
+**Example URL:**
+```
+/users/10
+```
+
+**Example:**
+```javascript
+app.get("/users/:id", (req, res) => {
+  console.log(req.params.id);
+});
+```
+
+**Output:**
+```
+10
+```
+
+### Q: Synchronous vs Asynchronous Process in Node.js?
+
+**Answer:**
+
+---
+
+#### 1️⃣ Synchronous Process
+
+Synchronous means tasks are executed **one by one**. The next task waits until the previous task finishes.
+
+> Execution is **blocking**.
+
+**Example:**
+```javascript
+console.log("Start");
+
+console.log("Task 1");
+
+console.log("Task 2");
+
+console.log("End");
+```
+
+**Output:**
+```
+Start
+Task 1
+Task 2
+End
+```
+
+Each line waits for the previous one.
+
+---
+
+#### 2️⃣ Asynchronous Process
+
+Asynchronous means tasks run **without blocking** the next task.
+
+Node.js can start a task and move to the next one without waiting. When the task finishes, the **callback function** runs.
+
+**Example:**
+```javascript
+console.log("Start");
+
+setTimeout(() => {
+  console.log("Async Task");
+}, 2000);
+
+console.log("End");
+```
+
+**Output:**
+```
+Start
+End
+Async Task
+```
