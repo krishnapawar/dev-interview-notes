@@ -1287,3 +1287,137 @@ Cluster is used to scale Node.js applications across multiple CPU cores by creat
 Worker threads are used for CPU-intensive JavaScript tasks that run in parallel threads within the same process.
 
 Child processes are used to run external programs or commands in separate processes.
+
+# 🔹 What is a Pure Component in React?
+
+A Pure Component in React is a component that **only re-renders when its props or state actually change**.
+
+It automatically performs a **shallow comparison of props and state** to decide whether the component should update or not.
+
+This helps **improve performance by preventing unnecessary re-renders**.
+
+---
+
+## ✅ Normal Component vs Pure Component
+
+### Normal Component
+
+A normal React component **re-renders every time its parent re-renders**, even if props are the same.
+
+```javascript
+import React, { Component } from "react";
+
+class MyComponent extends Component {
+  render() {
+    console.log("Component Rendered");
+    return <h1>{this.props.name}</h1>;
+  }
+}
+
+```
+# Pure Component
+
+A **PureComponent** automatically checks if props/state changed.
+```jsx
+import React, { PureComponent } from "react";
+
+class MyComponent extends PureComponent {
+  render() {
+    console.log("Pure Component Rendered");
+    return <h1>{this.props.name}</h1>;
+  }
+}
+```
+
+If `name` stays the same → React skips re-rendering.
+
+---
+
+## 🔹 What is Shallow Comparison?
+
+**PureComponent** checks only top-level values, not deep objects.
+
+**Example:**
+```js
+const obj1 = { name: "Krishna" }
+const obj2 = { name: "Krishna" }
+console.log(obj1 === obj2) // false
+```
+
+Because objects are compared by **reference**, not value.
+
+---
+
+## 🔹 Functional Component Alternative
+
+In functional components, we use:
+
+- `React.memo()`
+
+**Example:**
+```jsx
+const MyComponent = React.memo(({ name }) => {
+  console.log("Rendered");
+  return <h1>{name}</h1>;
+});
+```
+
+`React.memo()` works like `PureComponent` for functional components.
+
+---
+
+## 🔹 When to Use Pure Components
+
+**Use when:**
+
+- Component receives same props frequently
+- You want to optimize performance
+- Avoid unnecessary re-renders
+
+**Example:**
+
+- Dashboard widgets
+- Large lists
+- Tables
+
+# Difference Between Virtual DOM and Real DOM
+
+---
+
+## 1️⃣ Real DOM
+
+The **Real DOM** is the actual Document Object Model of the browser that represents the HTML structure of a webpage.
+
+**Example HTML:**
+```html
+<div>
+  <h1>Hello</h1>
+</div>
+```
+
+Browser creates a **DOM tree** from this HTML.
+
+### ⚠️ Problem with Real DOM
+
+When something changes:
+
+- Browser recalculates layout
+- Repaints the page
+- Updates the entire DOM tree
+
+> This process is **slow** if many elements exist.
+
+---
+
+## 2️⃣ Virtual DOM
+
+The **Virtual DOM** is a lightweight copy of the Real DOM stored in memory.
+
+React uses it to **optimize updates**.
+
+Instead of updating the browser DOM directly, React:
+
+1. Creates a **Virtual DOM** copy
+2. When state changes → creates **new Virtual DOM**
+3. Compares old Virtual DOM vs new Virtual DOM (**Diffing**)
+4. Updates **only the changed parts** in the Real DOM
