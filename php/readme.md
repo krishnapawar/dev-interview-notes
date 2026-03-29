@@ -11,10 +11,26 @@
 var_dump(5 == "5");   // true
 var_dump(5 === "5");  // false
 ```
+---
+
+# 🔥 7️⃣ Difference Between Session and Cookies
+
+| Session | Cookies |
+|----------|----------|
+| Stored on server | Stored in browser |
+| More secure | Less secure |
+| Accessed via `$_SESSION` | Accessed via `$_COOKIE` |
+| Expires when session ends (by default) | Can have custom expiry time |
+| Used for login/authentication | Used for small data like "remember me" |
 
 ---
 
-# 🔥 2️⃣ What Are Sessions in PHP?
+## 🎯 Strong Interview Line
+
+> Session stores data on the server, and only the session ID is stored in the cookie.
+
+---
+# 🔥 8️⃣ How Does PHP Handle Sessions Internally?
 
 Sessions store user data on the **server side**.
 
@@ -24,7 +40,49 @@ Used for:
 - Shopping cart data  
 - User preferences  
 
-PHP stores the session ID in a cookie called `PHPSESSID`.
+## ✅ Step-by-Step Process
+
+1. `session_start()` is called.  
+2. PHP generates a session ID.  
+3. Session ID is stored in a browser cookie (`PHPSESSID`).  
+4. Session data is stored on the server (file/database/Redis).  
+
+### On the next request:
+
+- The cookie sends the session ID.  
+- PHP loads the session data.  
+
+### Example:
+
+```php
+$_SESSION['user_id'] = 1;
+```
+
+## ✅ Laravel Session Drivers
+
+Laravel supports:
+
+- `file`  
+- `database`  
+- `redis`  
+- `memcached`  
+
+👉 In Laravel, the session driver is configured in the `.env` file.
+
+---
+
+# 🔥 5️⃣ What Is OPcache?
+
+OPcache stores compiled PHP bytecode in memory.
+
+## Without OPcache:
+
+- PHP compiles script on every request  
+
+## With OPcache:
+
+- Cached bytecode is reused  
+- Performance improves significantly 
 
 ---
 
@@ -111,43 +169,6 @@ print_r($array);
 
 📌 For debugging arrays → use `print_r()`  
 📌 For normal output → use `echo`
-
----
-
-# 🔥 7️⃣ Difference Between Session and Cookies
-
-| Session | Cookies |
-|----------|----------|
-| Stored on server | Stored in browser |
-| More secure | Less secure |
-| Accessed via `$_SESSION` | Accessed via `$_COOKIE` |
-| Expires when session ends (by default) | Can have custom expiry time |
-| Used for login/authentication | Used for small data like "remember me" |
-
----
-
-## 🎯 Strong Interview Line
-
-> Session stores data on the server, and only the session ID is stored in the cookie.
-
----
-
-# 🔥7️⃣ What Is Output Buffering?
-
-Output buffering stores output in memory before sending it to the browser.
-
-### Used For:
-
-- Modifying headers after output  
-- Improving performance  
-
-### Function:
-
-```php
-ob_start();
-echo "Hello";
-$content = ob_get_clean();
-```
 
 ---
 
@@ -475,12 +496,6 @@ Special methods that start with `__`.
 
 ---
 
-# 🔥1️⃣5️⃣ What Is Late Static Binding?
-
-Allows static methods to refer to the **called class** instead of the parent class using `static::`.
-
----
-
 # 🔥 OOP Concepts
 
 # 🔥 9️⃣ What Are the 4 Pillars of OOP?
@@ -571,41 +586,7 @@ User::with('posts')->get();
 - `self::` → Refers to the current class (compile-time binding)  
 - `static::` → Refers to called class (late static binding, runtime binding)  
 
-🎯 This is a commonly asked and important OOP question.
-
----
-
-# 🔥 4️⃣ How Does PHP Handle Sessions Internally?
-
-## ✅ Strong Answer
-
-- Session ID is stored in a browser cookie  
-- Session data is stored on the server (file by default)  
-- On each request, PHP reads the session file using the session ID  
-- Data is loaded into `$_SESSION`  
-
-## ✅ Session Drivers (Laravel)
-
-- `file`  
-- `redis`  
-- `database`  
-
-Mentioning session drivers gives extra points.
-
----
-
-# 🔥 5️⃣ What Is OPcache?
-
-OPcache stores compiled PHP bytecode in memory.
-
-## Without OPcache:
-
-- PHP compiles script on every request  
-
-## With OPcache:
-
-- Cached bytecode is reused  
-- Performance improves significantly  
+🎯 This is a commonly asked and important OOP question. 
 
 ---
 
@@ -623,23 +604,6 @@ Two users updating the same wallet balance simultaneously.
 - Atomic operations  
 
 🎯 Mentioning transactions and locking shows strong backend knowledge.
-
----
-
-# 🔥 7️⃣ Explain SOLID Principles Briefly
-
-- **S** → Single Responsibility  
-- **O** → Open/Closed  
-- **L** → Liskov Substitution  
-- **I** → Interface Segregation  
-- **D** → Dependency Inversion  
-
-## 🎯 Real Example
-
-A Controller should not handle business logic directly.  
-Instead, move business logic into a Service class.
-
-Interviewers prefer practical examples over theory.
 
 ---
 
@@ -727,7 +691,7 @@ $payment = new PaymentService();
 
 ## ✅ Definition
 
-Output buffering means PHP stores output in memory before sending it to the browser.
+Output buffering stores output in memory before sending it to the browser.
 
 ### Normally:
 
@@ -749,50 +713,18 @@ Now output is stored in `$content`.
 
 ## ✅ Why is Output Buffering Used?
 
-- Modify headers after output  
+- Modifying headers after output  
+- Improving performance
+- Compress output 
 - Capture view content  
-- Improve performance  
-- Compress output  
 
 👉 Laravel internally uses output buffering when rendering views.
 
 ---
 
-# 🔥 8️⃣ How Does PHP Handle Sessions Internally?
-
-## ✅ Step-by-Step Process
-
-1. `session_start()` is called.  
-2. PHP generates a session ID.  
-3. Session ID is stored in a browser cookie (`PHPSESSID`).  
-4. Session data is stored on the server (file/database/Redis).  
-
-### On the next request:
-
-- The cookie sends the session ID.  
-- PHP loads the session data.  
-
-### Example:
-
-```php
-$_SESSION['user_id'] = 1;
-```
-
-## ✅ Laravel Session Drivers
-
-Laravel supports:
-
-- `file`  
-- `database`  
-- `redis`  
-- `memcached`  
-
-👉 In Laravel, the session driver is configured in the `.env` file.
-
----
-
 # 🔟 What is Late Static Binding?
 
+Allows static methods to refer to the **called class** instead of the parent class using `static::`.
 Late Static Binding allows a child class to override static methods properly.
 
 ## Example:
@@ -839,6 +771,19 @@ Parent
 # 🔥 1️⃣1️⃣ Explain All SOLID Principles
 
 Very important for 4+ years experience 🔥
+
+- **S** → Single Responsibility  
+- **O** → Open/Closed  
+- **L** → Liskov Substitution  
+- **I** → Interface Segregation  
+- **D** → Dependency Inversion  
+
+## 🎯 Real Example
+
+A Controller should not handle business logic directly.  
+Instead, move business logic into a Service class.
+
+Interviewers prefer practical examples over theory.
 
 ---
 
