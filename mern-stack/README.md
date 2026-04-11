@@ -237,7 +237,7 @@ It makes asynchronous code look and behave like synchronous code, which is easie
 
 ---
 
-# What is Event Delegation?
+### Q15: What is Event Delegation?
 
 Event delegation is a technique in JavaScript where you attach a single event listener to a parent element instead of attaching separate listeners to each child element.
 
@@ -253,7 +253,7 @@ The event bubbles up from the child to the parent, and you can detect which chil
 
 ---
 
-# Example: Without Event Delegation
+### Example: Without Event Delegation
 
 Suppose you have 100 list items, and you want to handle clicks on each:
 
@@ -296,7 +296,7 @@ document.getElementById("menu").addEventListener("click", function(event) {
 
 ---
 
-# Event Delegation in React
+### Event Delegation in React
 
 In React, we don’t usually add event listeners directly to DOM elements. React already uses a **synthetic event system** where events bubble up to the root (`document`).
 
@@ -306,7 +306,7 @@ But we can still apply the idea of event delegation for efficiency.
 
 ---
 
-## Example: Without Event Delegation (React)
+### Example: Without Event Delegation (React)
 
 ```javascript
 import React from "react";
@@ -331,7 +331,7 @@ Not a big deal for small lists, but for **1000 items this is inefficient.**
 
 ---
 
-## Example: With Event Delegation (React)
+### Example: With Event Delegation (React)
 
 We attach one click handler to the parent `<ul>` and check the clicked child via `event.target`.
 
@@ -363,7 +363,7 @@ export default function Menu() {
 
 ---
 
-# Interview-ready React answer
+### Interview-ready React answer
 
 In React, event delegation is already part of its **synthetic event system** — React attaches a single listener at the root and manages bubbling.
 
@@ -371,9 +371,9 @@ But we can still implement delegation manually: instead of assigning `onClick` t
 
 This reduces the number of listeners and handles dynamically added children efficiently.
 
-# Common Default Modules in Node.js
+### Q16: Common Default Modules in Node.js
 
-## 1. File System (fs)
+#### 1. File System (fs)
 
 Used to work with files (read, write, update, delete).
 
@@ -384,7 +384,7 @@ fs.writeFileSync("test.txt", "Hello Node!");
 
 ---
 
-## 2. Path (path)
+#### 2. Path (path)
 
 Provides utilities for working with file and directory paths.
 
@@ -395,7 +395,7 @@ console.log(path.basename("/home/user/file.txt")); // file.txt
 
 ---
 
-## 3. HTTP (http)
+#### 3. HTTP (http)
 
 Used to create HTTP servers and clients.
 
@@ -409,7 +409,7 @@ http.createServer((req, res) => {
 
 ---
 
-## 4. HTTPS (https)
+#### 4. HTTPS (https)
 
 For creating secure servers (with SSL certificates).
 
@@ -419,7 +419,7 @@ const https = require("https");
 
 ---
 
-## 5. URL (url)
+#### 5. URL (url)
 
 Helps parse and format URLs.
 
@@ -433,7 +433,7 @@ console.log(parsed.query); // name=krishna
 
 ---
 
-## 6. Query String (querystring)
+#### 6. Query String (querystring)
 
 Work with query strings (older, now replaced by URLSearchParams).
 
@@ -446,7 +446,7 @@ console.log(qs.parse("name=krishna&age=24"));
 
 ---
 
-## 7. Events (events)
+#### 7. Events (events)
 
 Event-driven programming.
 
@@ -462,7 +462,7 @@ emitter.emit("greet");
 
 ---
 
-## 8. OS (os)
+#### 8. OS (os)
 
 System info (CPU, memory, platform, etc).
 
@@ -474,7 +474,7 @@ console.log(os.platform(), os.totalmem());
 
 ---
 
-## 9. Crypto (crypto)
+#### 9. Crypto (crypto)
 
 Encryption, hashing, security.
 
@@ -488,7 +488,7 @@ console.log(
 
 ---
 
-## 10. Stream (stream)
+#### 10. Stream (stream)
 
 Handling streams of data (files, network).
 
@@ -502,7 +502,7 @@ read.on("data", chunk => console.log(chunk.toString()));
 
 ---
 
-## 11. Buffer (buffer)
+#### 11. Buffer (buffer)
 
 Work with binary data.
 
@@ -514,7 +514,7 @@ console.log(buf.toString()); // Hello
 
 ---
 
-## 12. Child Process (child_process)
+#### 12. Child Process (child_process)
 
 Run other system commands/programs.
 
@@ -526,7 +526,7 @@ exec("ls", (err, stdout) => console.log(stdout));
 
 ---
 
-## 13. Timers
+#### 13. Timers
 
 - `setTimeout`
 - `setInterval`
@@ -535,7 +535,7 @@ exec("ls", (err, stdout) => console.log(stdout));
 
 ---
 
-## 14. Assert (assert)
+#### 14. Assert (assert)
 
 Used for testing (throw error if condition fails).
 
@@ -554,7 +554,7 @@ These modules don’t require installation — you can require them directly.
 
 ---
 
-# Difference Between slice() and splice()
+### Q17: Difference Between slice() and splice()
 
 | Feature | slice() | splice() |
 |------|------|------|
@@ -608,7 +608,7 @@ console.log(arr); // [1, "a", "b", 4, 5]
 
 ---
 
-# slice vs substring vs substr
+### slice vs substring vs substr
 
 | Method | Parameters | Negative Index | Notes |
 |------|------|------|------|
@@ -626,13 +626,13 @@ console.log(arr); // [1, "a", "b", 4, 5]
 
 ---
 
-# jQuery: Add Text to a Div
+### jQuery: Add Text to a Div
 
 In jQuery, you can add (append, prepend, insert) text to an existing `<div>` in a few ways.
 
 ---
 
-## 1. Using `.append()`
+### 1. Using `.append()`
 
 Adds text at the end of the existing content.
 
@@ -649,7 +649,7 @@ $("#myDiv").append(" World!");
 
 ---
 
-## 2. Using `.prepend()`
+### 2. Using `.prepend()`
 
 Adds text at the beginning.
 
@@ -662,7 +662,7 @@ $("#myDiv").prepend("Hi, ");
 
 ---
 
-## 3. Using `.html()`
+### 3. Using `.html()`
 
 Replaces the whole content.
 
@@ -675,7 +675,7 @@ $("#myDiv").html($("#myDiv").html() + " Again!");
 
 ---
 
-## 4. Using `.text()`
+### 4. Using `.text()`
 
 For plain text only.
 
@@ -710,7 +710,7 @@ Result:
 
 ---
 
-# Event-Driven Architecture in Node.js
+### Q18: Event-Driven Architecture in Node.js
 
 ## Definition
 
@@ -763,9 +763,9 @@ Event-driven architecture in Node.js is a design pattern where the program flow 
 
 ---
 
-# Event Loop in Node.js
+### Q19: Event Loop in Node.js
 
-## Definition
+### Definition
 
 The **Event Loop** is the core mechanism that allows Node.js to handle non-blocking asynchronous operations on a **single thread**.
 
@@ -773,7 +773,7 @@ It constantly checks for callbacks (events, timers, promises, I/O results) and e
 
 ---
 
-## Restaurant Analogy
+### Restaurant Analogy
 
 Think of it like a **restaurant manager**:
 
@@ -784,7 +784,7 @@ Think of it like a **restaurant manager**:
 
 ---
 
-## Event Loop Phases
+### Event Loop Phases
 
 ### 1. Timers Phase
 Executes callbacks from:
@@ -849,7 +849,7 @@ These run **between phases** and have **higher priority**.
 
 The Event Loop in Node.js allows non-blocking execution by continuously checking for pending callbacks, I/O operations, timers, and promises. It processes them in phases while prioritizing microtasks like `process.nextTick()` and Promises. This architecture allows Node.js to efficiently handle thousands of concurrent requests on a single thread.
 
-# What is ReactDOM in React?
+### Q20: What is ReactDOM in React?
 
 ## Definition
 
@@ -918,13 +918,13 @@ root.render(<App />);
 
 ---
 
-# Difference between setTimeout() and setImmediate() in Node.js
+### Q21: Difference between setTimeout() and setImmediate() in Node.js
 
 Both are used to execute code asynchronously, but they run in **different phases of the Event Loop**.
 
 ---
 
-## 1️⃣ setTimeout()
+### 1️⃣ setTimeout()
 
 ### Definition
 
@@ -944,7 +944,7 @@ It runs in the **Timers Phase** of the event loop.
 
 ---
 
-## 2️⃣ setImmediate()
+### 2️⃣ setImmediate()
 
 ### Definition
 
@@ -960,19 +960,19 @@ setImmediate(() => {
 
 ---
 
-## Short Interview Answer
+### Short Interview Answer
 
 `setTimeout()` schedules a callback in the **timers phase** after a specified delay, while `setImmediate()` schedules a callback in the **check phase** of the event loop. When used inside an I/O callback, `setImmediate()` usually executes before `setTimeout()`.
 
 ---
 
-# Difference between process.nextTick() and setImmediate()
+### Q22: Difference between process.nextTick() and setImmediate()
 
 Both schedule asynchronous callbacks, but they run at **different times in the event loop**.
 
 ---
 
-## 1️⃣ process.nextTick()
+### 1️⃣ process.nextTick()
 
 ### Definition
 
@@ -1002,7 +1002,7 @@ NextTick
 
 ---
 
-## 2️⃣ setImmediate()
+### 2️⃣ setImmediate()
 
 ### Definition
 
@@ -1030,7 +1030,7 @@ Immediate
 
 ---
 
-## Example Showing Both
+### Example Showing Both
 
 ```javascript
 console.log("Start");
@@ -1053,17 +1053,17 @@ Immediate
 
 ---
 
-# How does Node.js handle 10,000 concurrent requests with a single thread?
+### Q23: How does Node.js handle 10,000 concurrent requests with a single thread?
 
-## Short Answer
+### Short Answer
 
 Node.js handles thousands of concurrent requests using **non-blocking I/O**, the **event loop**, and the **libuv thread pool**, instead of creating a new thread for each request.
 
 ---
 
-# Step-by-Step Explanation
+### Step-by-Step Explanation
 
-## 1️⃣ Single Thread for JavaScript
+### 1️⃣ Single Thread for JavaScript
 
 Node.js runs JavaScript code on **one main thread**.
 
@@ -1071,7 +1071,7 @@ But it does not execute long operations directly (like file reading, DB queries,
 
 ---
 
-## 2️⃣ Non-Blocking I/O
+### 2️⃣ Non-Blocking I/O
 
 When Node.js encounters an I/O operation such as:
 
@@ -1095,7 +1095,7 @@ Node.js **does not wait** for the file to finish reading.
 
 ---
 
-## 3️⃣ Task Goes to libuv / OS
+### 3️⃣ Task Goes to libuv / OS
 
 The operation is handled by:
 
