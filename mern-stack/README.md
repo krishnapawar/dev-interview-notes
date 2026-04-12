@@ -1,4 +1,101 @@
-🔹 **React**
+### Q:🔹 What is Temporal Dead Zone (TDZ)?
+🔹 Interview-Ready Answer
+
+> The Temporal Dead Zone is the time between the declaration and initialization of variables declared with let and const, during which accessing them results in a ReferenceError. It ensures variables are not used before initialization.
+### Applies to:
+- let ✅
+- const ✅
+
+- ❌ Not for var
+
+### Example :
+```javascript
+console.log(a); // ❌ ReferenceError
+
+let a = 10;
+```
+### 👉 Here:
+
+- a is hoisted
+- But it's in TDZ until initialized
+
+### Example :
+```javascript
+let a = 5;
+
+{
+  console.log(a); // ❌ TDZ
+  let a = 10;
+}
+
+```
+- 👉 Inner a creates a new scope → TDZ starts again
+
+### Example :
+```javascript
+console.log(a); // undefined
+var a = 10;
+```
+- 👉 var is initialized with undefined, so no TDZ
+
+### 🔹 Why TDZ Exists?
+- Prevents using variables before declaration
+- Makes code safer and predictable
+- Avoids bugs
+
+---
+### Q:🔹 What are call, apply, and bind?
+- These are methods used to control the value of this inside a function.
+-👉 They belong to Function prototype.
+>call, apply, and bind are JavaScript methods used to set the value of this. call and apply execute the function immediately, while bind returns a new function. The main difference is that call takes arguments individually, apply takes them as an array, and bind is used for function reuse.
+
+### 🔹 Why we use them?
+- In JavaScript, this depends on how a function is called.
+- These methods help us manually set this.
+
+### 🔹 Example Setup
+```javascript
+const user = {
+  name: "Krishna"
+};
+
+function greet(age) {
+  console.log(`Hello ${this.name}, Age: ${age}`);
+}
+```
+
+### 🔹 1️⃣ call()
+✅ Definition
+
+- Calls the function immediately and passes arguments one by one.
+```javascript
+greet.call(user, 25);
+```
+Output:
+Hello Krishna, Age: 25
+### 🔹 2️⃣ apply()
+✅ Definition
+
+- Calls the function immediately but arguments are passed as an array.
+```javascript
+greet.apply(user, [25]);
+```
+Output:
+Hello Krishna, Age: 25
+### 🔹 3️⃣ bind()
+✅ Definition
+
+- Does NOT call the function immediately.
+- It returns a new function with this fixed.
+```javascript
+const newFunc = greet.bind(user, 25);
+newFunc();
+```
+Output:
+Hello Krishna, Age: 25
+
+---
+
 
 ### Q: How does React reconciliation work?
 
@@ -279,7 +376,7 @@ document.querySelectorAll("#menu li").forEach(li => {
 
 ---
 
-# Example: With Event Delegation ✅
+### Example: With Event Delegation ✅
 
 ```javascript
 document.getElementById("menu").addEventListener("click", function(event) {
