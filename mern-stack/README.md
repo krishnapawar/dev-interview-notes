@@ -1,6 +1,6 @@
 🔹 **React**
 
-### Q2: How does React reconciliation work?
+### Q: How does React reconciliation work?
 
 **Answer:**
 
@@ -19,7 +19,7 @@ After diffing → minimal changes are applied to the real DOM.
 
 ---
 
-### Q3: How do you optimize re-renders in React?
+### Q: How do you optimize re-renders in React?
 
 **Answer:**
 
@@ -32,7 +32,7 @@ After diffing → minimal changes are applied to the real DOM.
 
 ---
 
-### Q4: Difference between useEffect and useLayoutEffect?
+### Q: Difference between useEffect and useLayoutEffect?
 
 **Answer:**
 
@@ -41,7 +41,7 @@ After diffing → minimal changes are applied to the real DOM.
 
 ---
 
-### Q5: Why keys in React lists?
+### Q: Why keys in React lists?
 
 **Answer:**
 
@@ -55,7 +55,7 @@ Keys must be unique and stable (avoid array index as key).
 
 🔹 **Node.js**
 
-### Q6: How does Node.js handle 10,000 concurrent requests with a single thread?
+### Q: How does Node.js handle 10,000 concurrent requests with a single thread?
 
 **Answer:**
 
@@ -69,7 +69,7 @@ That’s why Node.js can handle thousands of concurrent connections with a singl
 
 ---
 
-### Q7: How does middleware chaining work in Express?
+### Q: How does middleware chaining work in Express?
 
 **Answer:**
 
@@ -95,7 +95,7 @@ Output: `A → B → C`
 
 ---
 
-### Q8: Difference between process.nextTick() and setImmediate()?
+### Q: Difference between process.nextTick() and setImmediate()?
 
 **Answer:**
 
@@ -106,7 +106,7 @@ Output: `A → B → C`
 
 🔹 **MongoDB**
 
-### Q9: When would you use $lookup?
+### Q: When would you use $lookup?
 
 **Answer:**
 
@@ -129,7 +129,7 @@ db.orders.aggregate([
 
 ---
 
-### Q10: Difference between findOne() and aggregate().match().limit(1)?
+### Q: Difference between findOne() and aggregate().match().limit(1)?
 
 **Answer:**
 
@@ -138,7 +138,7 @@ db.orders.aggregate([
 
 ---
 
-### Q11: How would you design a schema for an e-commerce cart system?
+### Q: How would you design a schema for an e-commerce cart system?
 
 **Answer:**
 
@@ -173,7 +173,7 @@ Cart embedded items for fast access.
 
 🔹 **System Design**
 
-### Q12: Design a scalable chat app with typing indicators.
+### Q: Design a scalable chat app with typing indicators.
 
 **Answer:**
 
@@ -194,7 +194,7 @@ Cart embedded items for fast access.
 
 🔹 **SQL**
 
-### Q13: SQL vs NoSQL?
+### Q: SQL vs NoSQL?
 
 **Answer:**
 
@@ -205,7 +205,7 @@ Cart embedded items for fast access.
 
 🔹 **Behavioral**
 
-### Q14: Biggest challenge in your project?
+### Q: Biggest challenge in your project?
 
 **Answer (example you can adapt):**
 
@@ -371,7 +371,7 @@ But we can still implement delegation manually: instead of assigning `onClick` t
 
 This reduces the number of listeners and handles dynamically added children efficiently.
 
-### Q16: Common Default Modules in Node.js
+### Q: Common Default Modules in Node.js
 
 #### 1. File System (fs)
 
@@ -554,7 +554,7 @@ These modules don’t require installation — you can require them directly.
 
 ---
 
-### Q17: Difference Between slice() and splice()
+### Q: Difference Between slice() and splice()
 
 | Feature | slice() | splice() |
 |------|------|------|
@@ -710,9 +710,9 @@ Result:
 
 ---
 
-### Q18: Event-Driven Architecture in Node.js
+### Q: Event-Driven Architecture in Node.js
 
-## Definition
+### Definition
 
 Event-driven architecture (EDA) in Node.js means the flow of the program is determined by **events** and **listeners** that react when those events occur.
 
@@ -722,7 +722,7 @@ It’s like saying:
 
 ---
 
-## How It Works
+### How It Works
 
 1. Event Emitter generates an event
 2. Event Listener (callback) is registered
@@ -738,7 +738,7 @@ Many Node.js components follow this pattern:
 
 ---
 
-## Example
+### Example
 
 ```javascript
 const EventEmitter = require("events");
@@ -763,7 +763,7 @@ Event-driven architecture in Node.js is a design pattern where the program flow 
 
 ---
 
-### Q19: Event Loop in Node.js
+### Q: Event Loop in Node.js
 
 ### Definition
 
@@ -849,9 +849,9 @@ These run **between phases** and have **higher priority**.
 
 The Event Loop in Node.js allows non-blocking execution by continuously checking for pending callbacks, I/O operations, timers, and promises. It processes them in phases while prioritizing microtasks like `process.nextTick()` and Promises. This architecture allows Node.js to efficiently handle thousands of concurrent requests on a single thread.
 
-### Q20: What is ReactDOM in React?
+### Q: What is ReactDOM in React?
 
-## Definition
+### Definition
 
 ReactDOM is a package that provides methods to interact with the DOM (Document Object Model) in a web browser.
 
@@ -861,7 +861,7 @@ ReactDOM is the bridge between React components and the actual HTML page (the br
 
 ---
 
-## Why It’s Needed
+### Why It’s Needed
 
 React builds a **virtual DOM** in memory — a lightweight copy of the real DOM.
 
@@ -873,7 +873,7 @@ That’s where **ReactDOM** comes in.
 
 ---
 
-## Example
+### Example
 
 ```javascript
 import React from "react";
@@ -900,7 +900,7 @@ Your React UI becomes visible in the browser.
 
 ---
 
-## Before React 18 (Old Way)
+### Before React 18 (Old Way)
 
 ```javascript
 ReactDOM.render(<App />, document.getElementById("root"));
@@ -908,7 +908,7 @@ ReactDOM.render(<App />, document.getElementById("root"));
 
 ---
 
-## After React 18 (New Way)
+### After React 18 (New Way)
 
 ```javascript
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -918,7 +918,7 @@ root.render(<App />);
 
 ---
 
-### Q21: Difference between setTimeout() and setImmediate() in Node.js
+### Q: Difference between setTimeout() and setImmediate() in Node.js
 
 Both are used to execute code asynchronously, but they run in **different phases of the Event Loop**.
 
@@ -966,7 +966,7 @@ setImmediate(() => {
 
 ---
 
-### Q22: Difference between process.nextTick() and setImmediate()
+### Q: Difference between process.nextTick() and setImmediate()
 
 Both schedule asynchronous callbacks, but they run at **different times in the event loop**.
 
@@ -1053,7 +1053,7 @@ Immediate
 
 ---
 
-### Q23: How does Node.js handle 10,000 concurrent requests with a single thread?
+### Q: How does Node.js handle 10,000 concurrent requests with a single thread?
 
 ### Short Answer
 
@@ -1106,7 +1106,7 @@ Meanwhile, Node.js continues processing other requests.
 
 ---
 
-## 4️⃣ Callback Queue
+### 4️⃣ Callback Queue
 
 When the operation finishes:
 
@@ -1114,7 +1114,7 @@ The result is placed into the **callback queue**.
 
 ---
 
-## 5️⃣ Event Loop Executes Callback
+### 5️⃣ Event Loop Executes Callback
 
 The **Event Loop** continuously checks:
 
@@ -1125,7 +1125,7 @@ If yes → it executes them.
 
 ---
 
-# Example Flow (10,000 Requests)
+### Example Flow (10,000 Requests)
 
 1. 10,000 users send HTTP requests
 2. Node.js receives them
@@ -1139,15 +1139,15 @@ Result:
 
 High concurrency without creating multiple threads.
 
-# Difference between Cluster, Worker Threads, and Child Process in Node.js
+### Q: Difference between Cluster, Worker Threads, and Child Process in Node.js
 
 All three are used to run tasks outside the main thread, but they work differently.
 
 ---
 
-# 1️⃣ Cluster Module
+### 1️⃣ Cluster Module
 
-## Purpose
+### Purpose
 
 Used to scale Node.js applications across multiple CPU cores.
 
@@ -1157,7 +1157,7 @@ Each process shares the **same server port**.
 
 ---
 
-## Example
+### Example
 
 ```javascript
 const cluster = require("cluster");
@@ -1176,7 +1176,7 @@ if (cluster.isMaster) {
 
 ---
 
-## Key Points
+### Key Points
 
 - Creates multiple Node.js processes
 - Used for high traffic servers
@@ -1184,9 +1184,9 @@ if (cluster.isMaster) {
 
 ---
 
-# 2️⃣ Worker Threads
+### 2️⃣ Worker Threads
 
-## Purpose
+### Purpose
 
 Used for **CPU-intensive JavaScript tasks**.
 
@@ -1194,7 +1194,7 @@ Runs JavaScript code in **parallel threads inside the same process**.
 
 ---
 
-## Example
+### Example
 
 ```javascript
 const { Worker } = require("worker_threads");
@@ -1208,7 +1208,7 @@ new Worker(`
 
 ---
 
-## Key Points
+### Key Points
 
 - Runs parallel JavaScript code
 - Used for heavy calculations
@@ -1222,9 +1222,9 @@ new Worker(`
 
 ---
 
-# 3️⃣ Child Process
+### 3️⃣ Child Process
 
-## Purpose
+### Purpose
 
 Used to run **external programs or commands**.
 
@@ -1232,7 +1232,7 @@ Node creates a **separate process** and communicates via messaging.
 
 ---
 
-## Example
+### Example
 
 ```javascript
 const { exec } = require("child_process");
@@ -1244,7 +1244,7 @@ exec("ls", (err, stdout) => {
 
 ---
 
-## Key Points
+### Key Points
 
 - Runs system commands
 - Separate process
@@ -1258,7 +1258,7 @@ exec("ls", (err, stdout) => {
 
 ---
 
-# Comparison Table
+### Comparison Table
 
 | Feature | Cluster | Worker Threads | Child Process |
 |------|------|------|------|
@@ -1270,7 +1270,7 @@ exec("ls", (err, stdout) => {
 
 ---
 
-# Simple Way to Remember
+### Simple Way to Remember
 
 | Problem | Solution |
 |------|------|
@@ -1280,7 +1280,7 @@ exec("ls", (err, stdout) => {
 
 ---
 
-# Interview Ready Answer
+### Interview Ready Answer
 
 Cluster is used to scale Node.js applications across multiple CPU cores by creating multiple processes.
 
@@ -1288,7 +1288,7 @@ Worker threads are used for CPU-intensive JavaScript tasks that run in parallel 
 
 Child processes are used to run external programs or commands in separate processes.
 
-# 🔹 What is a Pure Component in React?
+### 🔹 What is a Pure Component in React?
 
 A Pure Component in React is a component that **only re-renders when its props or state actually change**.
 
@@ -1298,7 +1298,7 @@ This helps **improve performance by preventing unnecessary re-renders**.
 
 ---
 
-## ✅ Normal Component vs Pure Component
+### Q: ✅ Normal Component vs Pure Component
 
 ### Normal Component
 
@@ -1333,7 +1333,7 @@ If `name` stays the same → React skips re-rendering.
 
 ---
 
-## 🔹 What is Shallow Comparison?
+#### 🔹 What is Shallow Comparison?
 
 **PureComponent** checks only top-level values, not deep objects.
 
@@ -1348,7 +1348,7 @@ Because objects are compared by **reference**, not value.
 
 ---
 
-## 🔹 Functional Component Alternative
+#### 🔹 Functional Component Alternative
 
 In functional components, we use:
 
@@ -1380,11 +1380,11 @@ const MyComponent = React.memo(({ name }) => {
 - Large lists
 - Tables
 
-# Difference Between Virtual DOM and Real DOM
+### Q: Difference Between Virtual DOM and Real DOM
 
 ---
 
-## 1️⃣ Real DOM
+#### 1️⃣ Real DOM
 
 The **Real DOM** is the actual Document Object Model of the browser that represents the HTML structure of a webpage.
 
