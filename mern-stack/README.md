@@ -1760,3 +1760,88 @@ Start
 End
 Async Task
 ```
+---
+#### 🔹 What is Shallow Copy?
+
+A shallow copy creates a new object, but nested objects/arrays are still shared by reference.
+
+**Example:**
+```javascript
+const user1 = {
+  name: "Krishna",
+  address: {
+    city: "Bhopal"
+  }
+};
+
+const user2 = { ...user1 }; // Shallow Copy
+
+user2.name = "Rahul";
+user2.address.city = "Indore";
+
+console.log(user1);
+console.log(user2);
+
+// output
+{
+  name: "Krishna",
+  address: {
+    city: "Indore"
+  }
+}
+
+{
+  name: "Rahul",
+  address: {
+    city: "Indore"
+  }
+}
+
+const copy = Object.assign({}, obj);
+//in array
+const copy = [...arr];
+
+const copy = arr.slice();
+
+```
+
+---
+
+### What is Deep Copy?
+A deep copy creates a completely independent copy, including all nested objects and arrays.
+
+```javascript
+const user1 = {
+  name: "Krishna",
+  address: {
+    city: "Bhopal"
+  }
+};
+
+const user2 = structuredClone(user1);
+
+user2.address.city = "Indore";
+
+console.log(user1);
+console.log(user2);
+
+//Older Method
+const copy = JSON.parse(JSON.stringify(obj));
+
+
+//output
+{
+  name: "Krishna",
+  address: {
+    city: "Bhopal"
+  }
+}
+
+{
+  name: "Krishna",
+  address: {
+    city: "Indore"
+  }
+}
+
+```
