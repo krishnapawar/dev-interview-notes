@@ -19,27 +19,27 @@
 14. [What is an S3 Bucket?](#14-what-is-an-s3-bucket)
 15. [What is Redis and where do you use it?](#15-what-is-redis-and-where-do-you-use-it)
 16. [Explain the JWT authentication process](#16-explain-the-jwt-authentication-process)
-17. [How to secure an API on the server?](#18-how-to-secure-an-api-on-the-server)
-18. [How to deploy a Node application on the server using EC2](#19-how-to-deploy-a-node-application-on-the-server-using-ec2)
-19. [What is a Production Outage?](#20-what-is-a-production-outage)
-20. [Session management using Redis](#21-session-management-using-redis)
-21. [Quick Reference Table](#quick-reference-table)
+17. [How to secure an API on the server?](#17-how-to-secure-an-api-on-the-server)
+18. [How to deploy a Node application on the server using EC2](#18-how-to-deploy-a-node-application-on-the-server-using-ec2)
+19. [What is a Production Outage?](#19-what-is-a-production-outage)
+20. [Session management using Redis](#20-session-management-using-redis)
+- [Quick Reference Table](#quick-reference-table)
 
 ### In-Depth Event Loop, Concurrency & Core Modules
-22. [Difference between setTimeout() and setImmediate() in Node.js](#q-difference-between-settimeout-and-setimmediate-in-nodejs)
-23. [Difference between process.nextTick() and setImmediate()](#q-difference-between-processnexttick-and-setimmediate)
-24. [Event Loop in Node.js](#q-event-loop-in-nodejs)
-25. [How does Node.js handle 10,000 concurrent requests with a single thread?](#q-how-does-nodejs-handle-10000-concurrent-requests-with-a-single-thread)
-26. [Difference between Cluster, Worker Threads, and Child Process in Node.js](#q-difference-between-cluster-worker-threads-and-child-process-in-nodejs)
-27. [Event-Driven Architecture in Node.js](#q-event-driven-architecture-in-nodejs)
-28. [How does middleware chaining work in Express?](#q8-how-does-middleware-chaining-work-in-express)
-29. [Common Default Modules in Node.js](#q17-common-default-modules-in-nodejs)
-30. [What types of API functions are used in Node.js?](#q-what-types-of-api-functions-are-used-in-nodejs)
-31. [What is a Module in Node.js?](#q-what-is-a-module-in-nodejs)
-32. [Main Disadvantages of Node.js?](#q-main-disadvantages-of-nodejs)
-33. [How to print "Hello" in Node.js without Express?](#q-how-to-print-hello-in-nodejs-without-express)
-34. [Difference Between Query Params and Request Params?](#q-difference-between-query-params-and-request-params)
-35. [Synchronous vs Asynchronous Process in Node.js?](#q-synchronous-vs-asynchronous-process-in-nodejs)
+21. [Difference between setTimeout() and setImmediate() in Node.js](#21-difference-between-settimeout-and-setimmediate-in-nodejs)
+22. [Difference between process.nextTick() and setImmediate()](#22-difference-between-processnexttick-and-setimmediate)
+23. [Event Loop in Node.js](#23-event-loop-in-nodejs)
+24. [How does Node.js handle 10,000 concurrent requests with a single thread?](#24-how-does-nodejs-handle-10000-concurrent-requests-with-a-single-thread)
+25. [Difference between Cluster, Worker Threads, and Child Process in Node.js](#25-difference-between-cluster-worker-threads-and-child-process-in-nodejs)
+26. [Event-Driven Architecture in Node.js](#26-event-driven-architecture-in-nodejs)
+27. [How does middleware chaining work in Express?](#27-how-does-middleware-chaining-work-in-express)
+28. [Common Default Modules in Node.js](#28-common-default-modules-in-nodejs)
+29. [What types of API functions are used in Node.js?](#29-what-types-of-api-functions-are-used-in-nodejs)
+30. [What is a Module in Node.js?](#30-what-is-a-module-in-nodejs)
+31. [Main Disadvantages of Node.js?](#31-main-disadvantages-of-nodejs)
+32. [How to print "Hello" in Node.js without Express?](#32-how-to-print-hello-in-nodejs-without-express)
+33. [Difference Between Query Params and Request Params?](#33-difference-between-query-params-and-request-params)
+34. [Synchronous vs Asynchronous Process in Node.js?](#34-synchronous-vs-asynchronous-process-in-nodejs)
 
 ---
 
@@ -427,7 +427,7 @@ function authMiddleware(req, res, next) {
 
 ---
 
-## 18. How to secure an API on the server?
+## 17. How to secure an API on the server?
 
 1. **Use HTTPS** — encrypt data in transit.
 2. **Authentication & Authorization** — JWT/OAuth, role-based access control (RBAC).
@@ -444,7 +444,7 @@ function authMiddleware(req, res, next) {
 
 ---
 
-## 19. How to deploy a Node application on the server using EC2
+## 18. How to deploy a Node application on the server using EC2
 
 **High-level steps:**
 
@@ -492,7 +492,7 @@ function authMiddleware(req, res, next) {
 
 ---
 
-## 20. What is a Production Outage?
+## 19. What is a Production Outage?
 
 A **production outage** is a period during which a live (production) application or service is unavailable or not functioning correctly for its users — resulting in downtime.
 
@@ -514,7 +514,7 @@ A **production outage** is a period during which a live (production) application
 
 ---
 
-## 21. Session management using Redis
+## 20. Session management using Redis
 
 Since Node.js apps are often stateless and horizontally scaled (multiple instances/servers), storing sessions in memory on a single server doesn't work well. **Redis** is commonly used as a fast, shared session store accessible by all server instances.
 
@@ -581,14 +581,14 @@ Each session is stored as a key in Redis (e.g., `sess:<sessionId>`), and the cli
 | 14 | S3 Bucket | AWS object storage container |
 | 15 | Redis | In-memory store for caching, sessions, queues, etc. |
 | 16 | JWT Auth | Stateless token-based authentication |
-| 18 | API Security | HTTPS, auth, validation, rate limiting, Helmet, CORS |
-| 19 | EC2 Deployment | Node + PM2 + Nginx reverse proxy + SSL |
-| 20 | Production Outage | Live app downtime; needs monitoring & rollback strategy |
-| 21 | Session Mgmt (Redis) | Shared, fast session store for scaled apps |
+| 17 | API Security | HTTPS, auth, validation, rate limiting, Helmet, CORS |
+| 18 | EC2 Deployment | Node + PM2 + Nginx reverse proxy + SSL |
+| 19 | Production Outage | Live app downtime; needs monitoring & rollback strategy |
+| 20 | Session Mgmt (Redis) | Shared, fast session store for scaled apps |
 
 ---
 
-### Q: Difference between setTimeout() and setImmediate() in Node.js
+## 21. Difference between setTimeout() and setImmediate() in Node.js
 
 Both are used to execute code asynchronously, but they run in **different phases of the Event Loop**.
 
@@ -596,32 +596,24 @@ Both are used to execute code asynchronously, but they run in **different phases
 
 ### 1️⃣ setTimeout()
 
-### Definition
+- **Definition:** `setTimeout()` schedules a callback to run after a specified delay (in milliseconds).
+- Even with `0ms`, it **does not run immediately**.
+- It runs in the **Timers Phase** of the event loop.
 
-`setTimeout()` schedules a callback to run after a specified delay (in milliseconds).
-
-### Example
-
+**Example:**
 ```javascript
 setTimeout(() => {
   console.log("Timeout executed");
 }, 0);
 ```
 
-Even with `0ms`, it **does not run immediately**.
-
-It runs in the **Timers Phase** of the event loop.
-
 ---
 
 ### 2️⃣ setImmediate()
 
-### Definition
+- **Definition:** `setImmediate()` schedules a callback to run in the **Check Phase** of the event loop, after I/O operations.
 
-`setImmediate()` schedules a callback to run in the **Check Phase** of the event loop, after I/O operations.
-
-### Example
-
+**Example:**
 ```javascript
 setImmediate(() => {
   console.log("Immediate executed");
@@ -630,13 +622,13 @@ setImmediate(() => {
 
 ---
 
-### Short Interview Answer
+### 🔹 Short Interview Answer
 
 `setTimeout()` schedules a callback in the **timers phase** after a specified delay, while `setImmediate()` schedules a callback in the **check phase** of the event loop. When used inside an I/O callback, `setImmediate()` usually executes before `setTimeout()`.
 
 ---
 
-### Q: Difference between process.nextTick() and setImmediate()
+## 22. Difference between process.nextTick() and setImmediate()
 
 Both schedule asynchronous callbacks, but they run at **different times in the event loop**.
 
@@ -644,14 +636,10 @@ Both schedule asynchronous callbacks, but they run at **different times in the e
 
 ### 1️⃣ process.nextTick()
 
-### Definition
+- **Definition:** `process.nextTick()` executes the callback **immediately after the current operation finishes**, before the event loop continues.
+- It runs in the **microtask queue** and has higher priority.
 
-`process.nextTick()` executes the callback **immediately after the current operation finishes**, before the event loop continues.
-
-It runs in the **microtask queue** and has higher priority.
-
-### Example
-
+**Example:**
 ```javascript
 console.log("Start");
 
@@ -662,8 +650,7 @@ process.nextTick(() => {
 console.log("End");
 ```
 
-### Output
-
+**Output:**
 ```text
 Start
 End
@@ -674,12 +661,9 @@ NextTick
 
 ### 2️⃣ setImmediate()
 
-### Definition
+- **Definition:** `setImmediate()` executes the callback in the **Check Phase** of the event loop.
 
-`setImmediate()` executes the callback in the **Check Phase** of the event loop.
-
-### Example
-
+**Example:**
 ```javascript
 console.log("Start");
 
@@ -690,8 +674,7 @@ setImmediate(() => {
 console.log("End");
 ```
 
-### Output
-
+**Output:**
 ```text
 Start
 End
@@ -700,8 +683,9 @@ Immediate
 
 ---
 
-### Example Showing Both
+### 3️⃣ Comparison Example (Showing Both)
 
+**Example:**
 ```javascript
 console.log("Start");
 
@@ -712,19 +696,17 @@ process.nextTick(() => console.log("NextTick"));
 console.log("End");
 ```
 
-### Output
-
+**Output:**
 ```text
 Start
 End
 NextTick
 Immediate
 ```
+
 ---
 
-### Q: Event Loop in Node.js
-
-### Definition
+## 23. Event Loop in Node.js
 
 The **Event Loop** is the core mechanism that allows Node.js to handle non-blocking asynchronous operations on a **single thread**.
 
@@ -732,7 +714,7 @@ It constantly checks for callbacks (events, timers, promises, I/O results) and e
 
 ---
 
-### Restaurant Analogy
+### 🍽️ Restaurant Analogy
 
 Think of it like a **restaurant manager**:
 
@@ -743,60 +725,36 @@ Think of it like a **restaurant manager**:
 
 ---
 
-### Event Loop Phases
+### 🔄 Event Loop Phases
 
-### 1. Timers Phase
+#### 1. Timers Phase
 Executes callbacks from:
-
 - `setTimeout()`
 - `setInterval()`
 
----
-
-### 2. Pending Callbacks
+#### 2. Pending Callbacks
 Executes deferred I/O callbacks.
 
----
-
-### 3. Idle / Prepare
+#### 3. Idle / Prepare
 Internal Node.js operations.
 
----
-
-### 4. Poll Phase
-
+#### 4. Poll Phase
 - Waits for new I/O events
-- Executes I/O callbacks
+- Executes I/O callbacks (e.g., `fs.readFile`, network requests)
 
-Example:
-
-- `fs.readFile`
-- Network requests
-
----
-
-### 5. Check Phase
-
+#### 5. Check Phase
 Executes:
-
 ```javascript
 setImmediate()
 ```
 
----
-
-### 6. Close Callbacks
-
+#### 6. Close Callbacks
 Handles cleanup:
-
 ```javascript
 socket.on("close")
 ```
 
----
-
-📌 **Microtasks**
-
+#### 📌 Microtasks
 - `Promises`
 - `process.nextTick`
 
@@ -804,42 +762,35 @@ These run **between phases** and have **higher priority**.
 
 ---
 
-🔹 **Short Interview-Ready Answer**
+### 🔹 Short Interview-Ready Answer
 
 The Event Loop in Node.js allows non-blocking execution by continuously checking for pending callbacks, I/O operations, timers, and promises. It processes them in phases while prioritizing microtasks like `process.nextTick()` and Promises. This architecture allows Node.js to efficiently handle thousands of concurrent requests on a single thread.
 
 ---
 
-### Q: How does Node.js handle 10,000 concurrent requests with a single thread?
+## 24. How does Node.js handle 10,000 concurrent requests with a single thread?
 
-### Short Answer
-
+**Short Answer:**  
 Node.js handles thousands of concurrent requests using **non-blocking I/O**, the **event loop**, and the **libuv thread pool**, instead of creating a new thread for each request.
 
 ---
 
-### Step-by-Step Explanation
+### 🔍 Step-by-Step Explanation
 
-### 1️⃣ Single Thread for JavaScript
-
+#### 1️⃣ Single Thread for JavaScript
 Node.js runs JavaScript code on **one main thread**.
 
 But it does not execute long operations directly (like file reading, DB queries, network calls).
 
----
-
-### 2️⃣ Non-Blocking I/O
-
+#### 2️⃣ Non-Blocking I/O
 When Node.js encounters an I/O operation such as:
-
 - Database query
 - API call
 - File read
 
 It **delegates the task** instead of waiting.
 
-### Example
-
+**Example:**
 ```javascript
 const fs = require("fs");
 
@@ -850,31 +801,19 @@ fs.readFile("data.txt", (err, data) => {
 
 Node.js **does not wait** for the file to finish reading.
 
----
-
-### 3️⃣ Task Goes to libuv / OS
-
+#### 3️⃣ Task Goes to libuv / OS
 The operation is handled by:
-
 - **Operating System** → network I/O
 - **libuv thread pool** → heavy tasks like file system operations and crypto
 
 Meanwhile, Node.js continues processing other requests.
 
----
-
-### 4️⃣ Callback Queue
-
+#### 4️⃣ Callback Queue
 When the operation finishes:
-
 The result is placed into the **callback queue**.
 
----
-
-### 5️⃣ Event Loop Executes Callback
-
+#### 5️⃣ Event Loop Executes Callback
 The **Event Loop** continuously checks:
-
 - Is the main thread free?
 - Are there callbacks waiting?
 
@@ -882,7 +821,7 @@ If yes → it executes them.
 
 ---
 
-### Example Flow (10,000 Requests)
+### 🌊 Example Flow (10,000 Requests)
 
 1. 10,000 users send HTTP requests
 2. Node.js receives them
@@ -892,13 +831,11 @@ If yes → it executes them.
 5. When data is ready → callback is queued
 6. Event Loop executes the callback
 
-Result:
-
-High concurrency without creating multiple threads.
+**Result:** High concurrency without creating multiple threads.
 
 ---
 
-### Q: Difference between Cluster, Worker Threads, and Child Process in Node.js
+## 25. Difference between Cluster, Worker Threads, and Child Process in Node.js
 
 All three are used to run tasks outside the main thread, but they work differently.
 
@@ -906,18 +843,13 @@ All three are used to run tasks outside the main thread, but they work different
 
 ### 1️⃣ Cluster Module
 
-### Purpose
+- **Purpose:** Used to scale Node.js applications across multiple CPU cores. Node.js normally runs on one CPU core, but **cluster allows multiple Node.js processes to run**. Each process shares the **same server port**.
+- **Key Points:**
+  - Creates multiple Node.js processes
+  - Used for high traffic servers
+  - Each process has separate memory
 
-Used to scale Node.js applications across multiple CPU cores.
-
-Node.js normally runs on one CPU core, but **cluster allows multiple Node.js processes to run**.
-
-Each process shares the **same server port**.
-
----
-
-### Example
-
+**Example:**
 ```javascript
 const cluster = require("cluster");
 const os = require("os");
@@ -935,26 +867,16 @@ if (cluster.isMaster) {
 
 ---
 
-### Key Points
-
-- Creates multiple Node.js processes
-- Used for high traffic servers
-- Each process has separate memory
-
----
-
 ### 2️⃣ Worker Threads
 
-### Purpose
+- **Purpose:** Used for **CPU-intensive JavaScript tasks**. Runs JavaScript code in **parallel threads inside the same process**.
+- **Key Points:**
+  - Runs parallel JavaScript code
+  - Used for heavy calculations
+  - Shares memory using `SharedArrayBuffer`
+- **Example Tasks:** Image processing, video encoding, AI computations
 
-Used for **CPU-intensive JavaScript tasks**.
-
-Runs JavaScript code in **parallel threads inside the same process**.
-
----
-
-### Example
-
+**Example:**
 ```javascript
 const { Worker } = require("worker_threads");
 
@@ -967,32 +889,16 @@ new Worker(`
 
 ---
 
-### Key Points
-
-- Runs parallel JavaScript code
-- Used for heavy calculations
-- Shares memory using `SharedArrayBuffer`
-
-### Example Tasks
-
-- Image processing
-- Video encoding
-- AI computations
-
----
-
 ### 3️⃣ Child Process
 
-### Purpose
+- **Purpose:** Used to run **external programs or commands**. Node creates a **separate process** and communicates via messaging.
+- **Key Points:**
+  - Runs system commands
+  - Separate process
+  - Communication via IPC (Inter-Process Communication)
+- **Example Tasks:** Running Python scripts, shell commands, other external programs
 
-Used to run **external programs or commands**.
-
-Node creates a **separate process** and communicates via messaging.
-
----
-
-### Example
-
+**Example:**
 ```javascript
 const { exec } = require("child_process");
 
@@ -1003,71 +909,51 @@ exec("ls", (err, stdout) => {
 
 ---
 
-### Key Points
-
-- Runs system commands
-- Separate process
-- Communication via IPC (Inter-Process Communication)
-
-### Example Tasks
-
-- Running Python scripts
-- Running shell commands
-- Running other programs
-
----
-
-### Comparison Table
+### 📊 Comparison Table
 
 | Feature | Cluster | Worker Threads | Child Process |
-|------|------|------|------|
-| Type | Multiple Node processes | Multiple threads | Separate process |
-| Use Case | Scaling servers | CPU-heavy tasks | Running external programs |
-| Memory | Separate memory | Shared memory possible | Separate memory |
-| Performance | Good for load balancing | Good for parallel computation | Slower communication |
-| Example | Web servers | Image processing | Shell commands |
+|---|---|---|---|
+| **Type** | Multiple Node processes | Multiple threads | Separate process |
+| **Use Case** | Scaling servers | CPU-heavy tasks | Running external programs |
+| **Memory** | Separate memory | Shared memory possible | Separate memory |
+| **Performance** | Good for load balancing | Good for parallel computation | Slower communication |
+| **Example** | Web servers | Image processing | Shell commands |
 
 ---
 
-### Simple Way to Remember
+### 💡 Simple Way to Remember
 
 | Problem | Solution |
-|------|------|
+|---|---|
 | High traffic API | Cluster |
 | Heavy CPU calculation | Worker Threads |
 | Run external program | Child Process |
 
 ---
 
-### Interview Ready Answer
+### 🔹 Interview-Ready Answer
 
-Cluster is used to scale Node.js applications across multiple CPU cores by creating multiple processes.
-
-Worker threads are used for CPU-intensive JavaScript tasks that run in parallel threads within the same process.
-
-Child processes are used to run external programs or commands in separate processes.
+- **Cluster** is used to scale Node.js applications across multiple CPU cores by creating multiple processes.
+- **Worker threads** are used for CPU-intensive JavaScript tasks that run in parallel threads within the same process.
+- **Child processes** are used to run external programs or commands in separate processes.
 
 ---
 
-### Q: Event-Driven Architecture in Node.js
-
-### Definition
+## 26. Event-Driven Architecture in Node.js
 
 Event-driven architecture (EDA) in Node.js means the flow of the program is determined by **events** and **listeners** that react when those events occur.
-
-It’s like saying:
 
 > “Don’t wait, tell me when it’s ready, and I’ll act then.”
 
 ---
 
-### How It Works
+### ⚙️ How It Works
 
-1. Event Emitter generates an event
-2. Event Listener (callback) is registered
+1. **Event Emitter** generates an event
+2. **Event Listener (callback)** is registered
 3. When the event happens, the listener executes
 
-Node.js uses the **EventEmitter class from the events module**.
+Node.js uses the **`EventEmitter` class from the `events` module**.
 
 Many Node.js components follow this pattern:
 - HTTP requests
@@ -1075,10 +961,7 @@ Many Node.js components follow this pattern:
 - File system operations
 - Database queries
 
----
-
-### Example
-
+**Example:**
 ```javascript
 const EventEmitter = require("events");
 
@@ -1096,41 +979,41 @@ myEmitter.emit("greet", "Krishna");
 
 ---
 
-🔹 **Short Interview-Ready Answer**
+### 🔹 Short Interview-Ready Answer
 
 Event-driven architecture in Node.js is a design pattern where the program flow is controlled by events and listeners. Node.js uses the `EventEmitter` class to emit and listen for events, making it highly scalable and efficient for handling asynchronous, non-blocking I/O operations.
 
 ---
 
-### Q8: How does middleware chaining work in Express?
+## 27. How does middleware chaining work in Express?
 
-**Answer:**
-
-Middleware are functions with `(req, res, next)`.
+Middleware are functions with signature `(req, res, next)`.
 
 Each middleware can:
+- Modify `req` or `res`.
+- Call `next()` to pass control to the next middleware.
+- Or end the response cycle using `res.send()`.
 
-- Modify req or res.
-- Call `next()` → to pass control to next middleware.
-- Or end response using `res.send()`.
-
-Order matters → they run top to bottom.
+Order matters — they execute sequentially from top to bottom.
 
 **Example:**
-
 ```javascript
 app.use((req, res, next) => { console.log("A"); next(); });
 app.use((req, res, next) => { console.log("B"); next(); });
 app.get("/", (req, res) => res.send("C"));
 ```
 
-Output: `A → B → C`
+**Output:** `A → B → C`
 
 ---
 
-### Q17: Common Default Modules in Node.js
+## 28. Common Default Modules in Node.js
 
-#### 1. File System (fs)
+Node.js comes with built-in core modules that do not require separate installation via npm.
+
+### 📦 Core Modules
+
+#### 1. File System (`fs`)
 
 Used to work with files (read, write, update, delete).
 
@@ -1141,7 +1024,7 @@ fs.writeFileSync("test.txt", "Hello Node!");
 
 ---
 
-#### 2. Path (path)
+#### 2. Path (`path`)
 
 Provides utilities for working with file and directory paths.
 
@@ -1152,7 +1035,7 @@ console.log(path.basename("/home/user/file.txt")); // file.txt
 
 ---
 
-#### 3. HTTP (http)
+#### 3. HTTP (`http`)
 
 Used to create HTTP servers and clients.
 
@@ -1166,7 +1049,7 @@ http.createServer((req, res) => {
 
 ---
 
-#### 4. HTTPS (https)
+#### 4. HTTPS (`https`)
 
 For creating secure servers (with SSL certificates).
 
@@ -1176,7 +1059,7 @@ const https = require("https");
 
 ---
 
-#### 5. URL (url)
+#### 5. URL (`url`)
 
 Helps parse and format URLs.
 
@@ -1190,9 +1073,9 @@ console.log(parsed.query); // name=krishna
 
 ---
 
-#### 6. Query String (querystring)
+#### 6. Query String (`querystring`)
 
-Work with query strings (older, now replaced by URLSearchParams).
+Work with query strings (legacy, now largely replaced by `URLSearchParams`).
 
 ```javascript
 const qs = require("querystring");
@@ -1203,9 +1086,9 @@ console.log(qs.parse("name=krishna&age=24"));
 
 ---
 
-#### 7. Events (events)
+#### 7. Events (`events`)
 
-Event-driven programming.
+Event-driven programming using EventEmitter.
 
 ```javascript
 const EventEmitter = require("events");
@@ -1219,9 +1102,9 @@ emitter.emit("greet");
 
 ---
 
-#### 8. OS (os)
+#### 8. OS (`os`)
 
-System info (CPU, memory, platform, etc).
+System info (CPU, memory, platform, uptime).
 
 ```javascript
 const os = require("os");
@@ -1231,7 +1114,7 @@ console.log(os.platform(), os.totalmem());
 
 ---
 
-#### 9. Crypto (crypto)
+#### 9. Crypto (`crypto`)
 
 Encryption, hashing, security.
 
@@ -1245,7 +1128,7 @@ console.log(
 
 ---
 
-#### 10. Stream (stream)
+#### 10. Stream (`stream`)
 
 Handling streams of data (files, network).
 
@@ -1259,9 +1142,9 @@ read.on("data", chunk => console.log(chunk.toString()));
 
 ---
 
-#### 11. Buffer (buffer)
+#### 11. Buffer (`buffer`)
 
-Work with binary data.
+Work with raw binary data.
 
 ```javascript
 const buf = Buffer.from("Hello");
@@ -1271,9 +1154,9 @@ console.log(buf.toString()); // Hello
 
 ---
 
-#### 12. Child Process (child_process)
+#### 12. Child Process (`child_process`)
 
-Run other system commands/programs.
+Run external system commands and scripts.
 
 ```javascript
 const { exec } = require("child_process");
@@ -1292,9 +1175,9 @@ exec("ls", (err, stdout) => console.log(stdout));
 
 ---
 
-#### 14. Assert (assert)
+#### 14. Assert (`assert`)
 
-Used for testing (throw error if condition fails).
+Used for testing (throws error if condition fails).
 
 ```javascript
 const assert = require("assert");
@@ -1304,20 +1187,18 @@ assert.strictEqual(2 + 2, 4);
 
 ---
 
-✅ **Interview-ready short answer**
+### 🔹 Interview-Ready Short Answer
 
 Node.js comes with built-in core modules like **fs (file system), http (server), path (file paths), events (event handling), os (system info), crypto (security), stream (data streams), and child_process (running system commands)**.  
 These modules don’t require installation — you can require them directly.
 
 ---
 
-### Q: What types of API functions are used in Node.js?
+## 29. What types of API functions are used in Node.js?
 
-**Answer:**
+In Node.js, APIs are usually created using standard **HTTP methods**:
 
-In Node.js, APIs are usually created using **HTTP methods**.
-
-#### Common API Methods
+### 📋 Common API Methods
 
 | Method | Purpose | Example |
 |---|---|---|
@@ -1340,19 +1221,17 @@ http.createServer((req, res) => {
 
 ---
 
-### Q: What is a Module in Node.js?
-
-**Answer:**
+## 30. What is a Module in Node.js?
 
 A module is a **reusable block of code** that can be exported and imported into other files.
 
-Node.js uses the **CommonJS module system**.
+Node.js uses the **CommonJS module system** (`require` / `module.exports`) by default, and also supports **ES Modules** (`import` / `export`).
 
 **`math.js`:**
 ```javascript
 exports.add = (a, b) => {
   return a + b;
-}
+};
 ```
 
 **`app.js`:**
@@ -1363,30 +1242,29 @@ console.log(math.add(2, 3));
 ```
 
 **Output:**
-```
+```text
 5
 ```
 
 ---
 
-### Q: Main Disadvantages of Node.js?
+## 31. Main Disadvantages of Node.js?
 
-**Answer:**
+1. **Not good for CPU-heavy tasks** — Node.js is single-threaded for JS execution, so heavy computation can block the event loop.
+   - Examples: Video processing, large data calculation, machine learning
 
-1. **Not good for CPU-heavy tasks** — Node.js is single-threaded, so heavy computation can block the event loop.
-   - Examples: Video processing, large data calculation
+2. **Callback complexity** — Too many nested callbacks can create **callback hell** (mitigated with Promises and `async/await`).
 
-2. **Callback complexity** — Too many callbacks can create **callback hell**.
+3. **Immature / unmaintained libraries** — Some npm packages may lack proper maintenance, types, or stability.
 
-3. **Immature libraries** *(earlier issue)* — Some npm packages may be unstable.
-
-4. **Debugging async code** can be difficult.
+4. **Debugging async code** — Tracing call stacks across asynchronous operations and event loops can be difficult.
 
 ---
 
-### Q: How to print "Hello" in Node.js without Express?
+## 32. How to print "Hello" in Node.js without Express?
 
-**Answer:**
+Using Node.js's built-in **`http` module**:
+
 ```javascript
 const http = require("http");
 
@@ -1395,28 +1273,28 @@ const server = http.createServer((req, res) => {
   res.end();
 });
 
-server.listen(3000);
+server.listen(3000, () => {
+  console.log("Server running on http://localhost:3000");
+});
 ```
 
-Open in browser:
+**Open in browser:**
 ```
 http://localhost:3000
 ```
 
 **Output:**
-```
+```text
 Hello
 ```
 
 ---
 
-### Q: Difference Between Query Params and Request Params?
+## 33. Difference Between Query Params and Request Params?
 
-**Answer:**
+### 1️⃣ Query Params
 
-#### Query Params
-
-Values sent in the URL **after `?`**
+Values sent in the URL **after `?`**, commonly used for filtering, searching, or pagination.
 
 **Example URL:**
 ```
@@ -1426,20 +1304,21 @@ Values sent in the URL **after `?`**
 **Example:**
 ```javascript
 app.get("/users", (req, res) => {
-  console.log(req.query.id);
+  console.log(req.query.id);   // 10
+  console.log(req.query.name); // krishna
 });
 ```
 
 **Output:**
-```
+```text
 10
 ```
 
 ---
 
-#### Request Params (Route Params)
+### 2️⃣ Request Params (Route Params)
 
-Values embedded **inside the URL path**.
+Values embedded **inside the URL path**, specified with `:paramName` in route patterns.
 
 **Example URL:**
 ```
@@ -1449,24 +1328,22 @@ Values embedded **inside the URL path**.
 **Example:**
 ```javascript
 app.get("/users/:id", (req, res) => {
-  console.log(req.params.id);
+  console.log(req.params.id); // 10
 });
 ```
 
 **Output:**
-```
+```text
 10
 ```
 
 ---
 
-### Q: Synchronous vs Asynchronous Process in Node.js?
-
-**Answer:**
+## 34. Synchronous vs Asynchronous Process in Node.js?
 
 ---
 
-#### 1️⃣ Synchronous Process
+### 1️⃣ Synchronous Process
 
 Synchronous means tasks are executed **one by one**. The next task waits until the previous task finishes.
 
@@ -1475,16 +1352,13 @@ Synchronous means tasks are executed **one by one**. The next task waits until t
 **Example:**
 ```javascript
 console.log("Start");
-
 console.log("Task 1");
-
 console.log("Task 2");
-
 console.log("End");
 ```
 
 **Output:**
-```
+```text
 Start
 Task 1
 Task 2
@@ -1495,11 +1369,13 @@ Each line waits for the previous one.
 
 ---
 
-#### 2️⃣ Asynchronous Process
+### 2️⃣ Asynchronous Process
 
 Asynchronous means tasks run **without blocking** the next task.
 
 Node.js can start a task and move to the next one without waiting. When the task finishes, the **callback function** runs.
+
+> Execution is **non-blocking**.
 
 **Example:**
 ```javascript
@@ -1513,7 +1389,7 @@ console.log("End");
 ```
 
 **Output:**
-```
+```text
 Start
 End
 Async Task
