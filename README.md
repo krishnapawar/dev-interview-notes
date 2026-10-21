@@ -15,6 +15,7 @@ A centralized, comprehensive, practical revision guide for technical and HR inte
 | **🟢 Node.js & Express** | Architecture, libuv, event loop, streams, clustering, rate limiting, JWT, AWS deployment, outage handling | [**Open Node.js Guide**](./mern-stack/nodejs/README.md) |
 | **🍃 MongoDB & System Design** | Aggregations, `$lookup`, schema design (e-commerce cart, chat apps), SQL vs NoSQL, indexing | [**Open MongoDB Guide**](./mern-stack/mongodb/README.md) |
 | **📘 WebSockets & Real-Time** | WebSocket handshake, reconnection & backoff, horizontal scaling, WebRTC (STUN/TURN), webhooks | [**Open WebSockets Guide**](./websocket/README.md) |
+| **🐳 Docker & Containers** | Containers vs VMs, Dockerfile, Compose, multi-stage builds, volumes, networks, Node.js deployment | [**Open Docker Guide**](./docker/README.md) |
 | **🌿 Git & Version Control** | Merge vs rebase, stash, cherry-pick, conflict resolution, Git Flow, squashing commits | [**Open Git Guide**](./git/README.md) |
 | **🗄️ SQL & Databases** | Indexing, INNER vs LEFT JOIN, normalization, query optimization, ACID transactions | [**Open SQL Guide**](./sql/README.md) |
 | **🔴 Laravel & PHP** | Service container, middleware, eager vs lazy loading, Eloquent relationships, performance tuning | [**Open Laravel Guide**](./laravel/README.md) |

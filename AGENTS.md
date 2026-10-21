@@ -106,6 +106,7 @@ Every interview question **must** have its Question Heading separated from its A
 │   ├── nodejs/README.md       # Node.js & Express interview Q&A
 │   └── mongodb/README.md      # MongoDB & System Design Q&A
 ├── websocket/README.md        # WebSockets & Real-time Q&A
+├── docker/README.md           # Docker & containerization interview Q&A
 ├── git/README.md              # Git workflow & interview Q&A
 ├── sql/README.md              # SQL queries & DB interview Q&A
 └── laravel/README.md          # Laravel / PHP interview Q&A
