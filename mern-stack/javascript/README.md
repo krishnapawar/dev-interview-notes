@@ -1,40 +1,44 @@
 # ⚡ JavaScript — Interview Questions & Answers
 
 ## 📋 Table of Contents
-1. [What is Temporal Dead Zone (TDZ)?](#q1-what-is-temporal-dead-zone-tdz)
-2. [What are call, apply, and bind?](#q2-what-are-call-apply-and-bind)
-3. [What is async/await?](#what-is-asyncawait)
-4. [What is Event Delegation?](#q16-what-is-event-delegation)
-5. [Difference Between slice() and splice()](#q18-difference-between-slice-and-splice)
-6. [slice vs substring vs substr](#o19-slice-vs-substring-vs-substr)
-7. [What is Shallow Copy?](#what-is-shallow-copy)
-8. [What is Deep Copy?](#what-is-deep-copy)
-9. [jQuery: Add Text to a Div](#q-jquery-add-text-to-a-div)
+1. [What is Temporal Dead Zone (TDZ)?](#1-what-is-temporal-dead-zone-tdz)
+2. [What are call, apply, and bind?](#2-what-are-call-apply-and-bind)
+3. [What is async/await?](#3-what-is-asyncawait)
+4. [What is Event Delegation?](#4-what-is-event-delegation)
+5. [Difference Between slice() and splice()](#5-difference-between-slice-and-splice)
+6. [slice vs substring vs substr](#6-slice-vs-substring-vs-substr)
+7. [What is Shallow Copy?](#7-what-is-shallow-copy)
+8. [What is Deep Copy?](#8-what-is-deep-copy)
+9. [jQuery: Add Text to a Div](#9-jquery-add-text-to-a-div)
 
 ---
 
-### Q1:🔹 What is Temporal Dead Zone (TDZ)?
-🔹 Interview-Ready Answer
+## 1. What is Temporal Dead Zone (TDZ)?
+
+### 💡 Answer
+
+**Interview-Ready Answer:**
 
 > The Temporal Dead Zone is the time between the declaration and initialization of variables declared with let and const, during which accessing them results in a ReferenceError. It ensures variables are not used before initialization.
-### Applies to:
+
+**Applies to:**
 - let ✅
 - const ✅
-
 - ❌ Not for var
 
-### Example :
+**Example:**
 ```javascript
 console.log(a); // ❌ ReferenceError
 
 let a = 10;
 ```
-### 👉 Here:
+
+**Here:**
 
 - a is hoisted
 - But it's in TDZ until initialized
 
-### Example :
+**Example:**
 ```javascript
 let a = 5;
 
@@ -42,34 +46,37 @@ let a = 5;
   console.log(a); // ❌ TDZ
   let a = 10;
 }
-
 ```
 - 👉 Inner a creates a new scope → TDZ starts again
 
-### Example :
+**Example:**
 ```javascript
 console.log(a); // undefined
 var a = 10;
 ```
 - 👉 var is initialized with undefined, so no TDZ
 
-### 🔹 Why TDZ Exists?
+**Why TDZ Exists?**
 - Prevents using variables before declaration
 - Makes code safer and predictable
 - Avoids bugs
 
 ---
 
-### Q2:🔹 What are call, apply, and bind?
-- These are methods used to control the value of this inside a function.
--👉 They belong to Function prototype.
->call, apply, and bind are JavaScript methods used to set the value of this. call and apply execute the function immediately, while bind returns a new function. The main difference is that call takes arguments individually, apply takes them as an array, and bind is used for function reuse.
+## 2. What are call, apply, and bind?
 
-### 🔹 Why we use them?
+### 💡 Answer
+
+- These are methods used to control the value of this inside a function.
+- 👉 They belong to Function prototype.
+
+> call, apply, and bind are JavaScript methods used to set the value of this. call and apply execute the function immediately, while bind returns a new function. The main difference is that call takes arguments individually, apply takes them as an array, and bind is used for function reuse.
+
+**Why we use them?**
 - In JavaScript, this depends on how a function is called.
 - These methods help us manually set this.
 
-### 🔹 Example Setup
+**Example Setup:**
 ```javascript
 const user = {
   name: "Krishna"
@@ -80,39 +87,55 @@ function greet(age) {
 }
 ```
 
-### 🔹 1️⃣ call()
-✅ Definition
+#### 1️⃣ call()
+**Definition:**
 
 - Calls the function immediately and passes arguments one by one.
+
 ```javascript
 greet.call(user, 25);
 ```
-Output:
+
+**Output:**
+```text
 Hello Krishna, Age: 25
-### 🔹 2️⃣ apply()
-✅ Definition
+```
+
+#### 2️⃣ apply()
+**Definition:**
 
 - Calls the function immediately but arguments are passed as an array.
+
 ```javascript
 greet.apply(user, [25]);
 ```
-Output:
+
+**Output:**
+```text
 Hello Krishna, Age: 25
-### 🔹 3️⃣ bind()
-✅ Definition
+```
+
+#### 3️⃣ bind()
+**Definition:**
 
 - Does NOT call the function immediately.
 - It returns a new function with this fixed.
+
 ```javascript
 const newFunc = greet.bind(user, 25);
 newFunc();
 ```
-Output:
+
+**Output:**
+```text
 Hello Krishna, Age: 25
+```
 
 ---
 
-### What is async/await?
+## 3. What is async/await?
+
+### 💡 Answer
 
 async/await is syntactic sugar built on top of Promises in JavaScript.
 
@@ -120,7 +143,7 @@ It makes asynchronous code look and behave like synchronous code, which is easie
 
 ---
 
-🔹 **Rules**
+**Rules:**
 
 - A function declared with `async` always returns a Promise.
 - Inside an async function, you can use `await` before a Promise.
@@ -138,7 +161,9 @@ It makes asynchronous code look and behave like synchronous code, which is easie
 
 ---
 
-### Q16: What is Event Delegation?
+## 4. What is Event Delegation?
+
+### 💡 Answer
 
 Event delegation is a technique in JavaScript where you attach a single event listener to a parent element instead of attaching separate listeners to each child element.
 
@@ -146,7 +171,7 @@ The event bubbles up from the child to the parent, and you can detect which chil
 
 ---
 
-🔹 **Why use it?**
+**Why use it?**
 
 - Improves performance (fewer event listeners).
 - Handles dynamically added elements (new children don’t need extra listeners).
@@ -154,7 +179,7 @@ The event bubbles up from the child to the parent, and you can detect which chil
 
 ---
 
-### Example: Without Event Delegation
+**Example: Without Event Delegation**
 
 Suppose you have 100 list items, and you want to handle clicks on each:
 
@@ -180,7 +205,7 @@ document.querySelectorAll("#menu li").forEach(li => {
 
 ---
 
-### Example: With Event Delegation ✅
+**Example: With Event Delegation ✅**
 
 ```javascript
 document.getElementById("menu").addEventListener("click", function(event) {
@@ -197,7 +222,7 @@ document.getElementById("menu").addEventListener("click", function(event) {
 
 ---
 
-### Event Delegation in React
+**Event Delegation in React:**
 
 In React, we don’t usually add event listeners directly to DOM elements. React already uses a **synthetic event system** where events bubble up to the root (`document`).
 
@@ -207,7 +232,7 @@ But we can still apply the idea of event delegation for efficiency.
 
 ---
 
-### Example: Without Event Delegation (React)
+**Example: Without Event Delegation (React)**
 
 ```javascript
 import React from "react";
@@ -232,7 +257,7 @@ Not a big deal for small lists, but for **1000 items this is inefficient.**
 
 ---
 
-### Example: With Event Delegation (React)
+**Example: With Event Delegation (React)**
 
 We attach one click handler to the parent `<ul>` and check the clicked child via `event.target`.
 
@@ -264,7 +289,7 @@ export default function Menu() {
 
 ---
 
-### Interview-ready React answer
+**Interview-ready React answer:**
 
 In React, event delegation is already part of its **synthetic event system** — React attaches a single listener at the root and manages bubbling.
 
@@ -274,7 +299,9 @@ This reduces the number of listeners and handles dynamically added children effi
 
 ---
 
-### Q18: Difference Between slice() and splice()
+## 5. Difference Between slice() and splice()
+
+### 💡 Answer
 
 | Feature | slice() | splice() |
 |------|------|------|
@@ -286,9 +313,9 @@ This reduces the number of listeners and handles dynamically added children effi
 
 ---
 
-## Examples
+**Examples:**
 
-### 1. slice()
+**1. slice()**
 
 ```javascript
 let arr = [1, 2, 3, 4, 5];
@@ -301,7 +328,7 @@ console.log(arr);    // [1, 2, 3, 4, 5] (original not changed)
 
 ---
 
-### 2. splice()
+**2. splice()**
 
 ```javascript
 let arr = [1, 2, 3, 4, 5];
@@ -320,7 +347,7 @@ console.log(arr); // [1, "a", "b", 4, 5]
 
 ---
 
-🔹 **Interview-Ready Short Answer**
+**Interview-Ready Short Answer:**
 
 `slice()` returns a shallow copy of part of an array into a new array and does **not modify the original array**.
 
@@ -328,7 +355,9 @@ console.log(arr); // [1, "a", "b", 4, 5]
 
 ---
 
-### O19: slice vs substring vs substr
+## 6. slice vs substring vs substr
+
+### 💡 Answer
 
 | Method | Parameters | Negative Index | Notes |
 |------|------|------|------|
@@ -338,7 +367,7 @@ console.log(arr); // [1, "a", "b", 4, 5]
 
 ---
 
-🔹 **Interview-Ready One-Liner**
+**Interview-Ready One-Liner:**
 
 - `slice(start, end)` extracts using indexes (supports negatives)
 - `substring(start, end)` similar but does not support negatives and swaps indexes if start > end
@@ -346,7 +375,9 @@ console.log(arr); // [1, "a", "b", 4, 5]
 
 ---
 
-### What is Shallow Copy?
+## 7. What is Shallow Copy?
+
+### 💡 Answer
 
 A shallow copy creates a new object, but nested objects/arrays are still shared by reference.
 
@@ -387,12 +418,14 @@ const copy = Object.assign({}, obj);
 const copy = [...arr];
 
 const copy = arr.slice();
-
 ```
 
 ---
 
-### What is Deep Copy?
+## 8. What is Deep Copy?
+
+### 💡 Answer
+
 A deep copy creates a completely independent copy, including all nested objects and arrays.
 
 ```javascript
@@ -413,7 +446,6 @@ console.log(user2);
 //Older Method
 const copy = JSON.parse(JSON.stringify(obj));
 
-
 //output
 {
   name: "Krishna",
@@ -428,18 +460,19 @@ const copy = JSON.parse(JSON.stringify(obj));
     city: "Indore"
   }
 }
-
 ```
 
 ---
 
-### Q: jQuery: Add Text to a Div
+## 9. jQuery: Add Text to a Div
+
+### 💡 Answer
 
 In jQuery, you can add (append, prepend, insert) text to an existing `<div>` in a few ways.
 
 ---
 
-### 1. Using `.append()`
+**1. Using `.append()`**
 
 Adds text at the end of the existing content.
 
@@ -456,7 +489,7 @@ $("#myDiv").append(" World!");
 
 ---
 
-### 2. Using `.prepend()`
+**2. Using `.prepend()`**
 
 Adds text at the beginning.
 
@@ -469,7 +502,7 @@ $("#myDiv").prepend("Hi, ");
 
 ---
 
-### 3. Using `.html()`
+**3. Using `.html()`**
 
 Replaces the whole content.
 
@@ -482,7 +515,7 @@ $("#myDiv").html($("#myDiv").html() + " Again!");
 
 ---
 
-### 4. Using `.text()`
+**4. Using `.text()`**
 
 For plain text only.
 
@@ -495,7 +528,7 @@ $("#myDiv").text($("#myDiv").text() + " !!!");
 
 ---
 
-🔹 **Which one to use?**
+**Which one to use?**
 
 - Use `.append()` / `.prepend()` to add content inside the div
 - Use `.html()` if you need HTML tags
@@ -503,16 +536,14 @@ $("#myDiv").text($("#myDiv").text() + " !!!");
 
 ---
 
-👉 **Example with HTML**
+**Example with HTML:**
 
 ```javascript
 $("#myDiv").append("<strong> Bold Text</strong>");
 ```
 
-Result:
+**Result:**
 
 ```html
 <div id="myDiv">Hello <strong> Bold Text</strong></div>
 ```
-
----

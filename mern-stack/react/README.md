@@ -1,19 +1,21 @@
 # ⚛️ React — Interview Questions & Answers
 
 ## 📋 Table of Contents
-1. [What is ReactDOM in React?](#q-what-is-reactdom-in-react)
-2. [What is a Pure Component in React? / Normal Component vs Pure Component](#what-is-a-pure-component-in-react)
-3. [Difference Between Virtual DOM and Real DOM](#q-difference-between-virtual-dom-and-real-dom)
-4. [How does React reconciliation work?](#q3-how-does-react-reconciliation-work)
-5. [How do you optimize re-renders in React?](#q4-how-do-you-optimize-re-renders-in-react)
-6. [Difference between useEffect and useLayoutEffect?](#q5-difference-between-useeffect-and-uselayouteffect)
-7. [Why keys in React lists?](#q6-why-keys-in-react-lists)
+1. [What is ReactDOM in React?](#1-what-is-reactdom-in-react)
+2. [What is a Pure Component in React? (Normal Component vs Pure Component)](#2-what-is-a-pure-component-in-react-normal-component-vs-pure-component)
+3. [Difference Between Virtual DOM and Real DOM](#3-difference-between-virtual-dom-and-real-dom)
+4. [How does React reconciliation work?](#4-how-does-react-reconciliation-work)
+5. [How do you optimize re-renders in React?](#5-how-do-you-optimize-re-renders-in-react)
+6. [Difference between useEffect and useLayoutEffect?](#6-difference-between-useeffect-and-uselayouteffect)
+7. [Why keys in React lists?](#7-why-keys-in-react-lists)
 
 ---
 
-### Q: What is ReactDOM in React?
+## 1. What is ReactDOM in React?
 
-### Definition
+### 💡 Answer
+
+**Definition:**
 
 ReactDOM is a package that provides methods to interact with the DOM (Document Object Model) in a web browser.
 
@@ -23,7 +25,7 @@ ReactDOM is the bridge between React components and the actual HTML page (the br
 
 ---
 
-### Why It’s Needed
+**Why It’s Needed:**
 
 React builds a **virtual DOM** in memory — a lightweight copy of the real DOM.
 
@@ -35,7 +37,7 @@ That’s where **ReactDOM** comes in.
 
 ---
 
-### Example
+**Example:**
 
 ```javascript
 import React from "react";
@@ -52,7 +54,7 @@ Here:
 - `ReactDOM.createRoot()` → Creates a root container for the React app
 - `.render(<App />)` → Tells ReactDOM to render your React component inside the real HTML element
 
-Example HTML element:
+**Example HTML element:**
 
 ```html
 <div id="root"></div>
@@ -62,7 +64,7 @@ Your React UI becomes visible in the browser.
 
 ---
 
-### Before React 18 (Old Way)
+**Before React 18 (Old Way):**
 
 ```javascript
 ReactDOM.render(<App />, document.getElementById("root"));
@@ -70,7 +72,7 @@ ReactDOM.render(<App />, document.getElementById("root"));
 
 ---
 
-### After React 18 (New Way)
+**After React 18 (New Way):**
 
 ```javascript
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -80,7 +82,9 @@ root.render(<App />);
 
 ---
 
-### 🔹 What is a Pure Component in React?
+## 2. What is a Pure Component in React? (Normal Component vs Pure Component)
+
+### 💡 Answer
 
 A Pure Component in React is a component that **only re-renders when its props or state actually change**.
 
@@ -90,9 +94,9 @@ This helps **improve performance by preventing unnecessary re-renders**.
 
 ---
 
-### Q: ✅ Normal Component vs Pure Component
+#### 🔄 Normal Component vs Pure Component
 
-### Normal Component
+**Normal Component:**
 
 A normal React component **re-renders every time its parent re-renders**, even if props are the same.
 
@@ -105,11 +109,12 @@ class MyComponent extends Component {
     return <h1>{this.props.name}</h1>;
   }
 }
-
 ```
-# Pure Component
+
+**Pure Component:**
 
 A **PureComponent** automatically checks if props/state changed.
+
 ```jsx
 import React, { PureComponent } from "react";
 
@@ -125,22 +130,22 @@ If `name` stays the same → React skips re-rendering.
 
 ---
 
-#### 🔹 What is Shallow Comparison?
+**What is Shallow Comparison?**
 
 **PureComponent** checks only top-level values, not deep objects.
 
 **Example:**
-```js
-const obj1 = { name: "Krishna" }
-const obj2 = { name: "Krishna" }
-console.log(obj1 === obj2) // false
+```javascript
+const obj1 = { name: "Krishna" };
+const obj2 = { name: "Krishna" };
+console.log(obj1 === obj2); // false
 ```
 
 Because objects are compared by **reference**, not value.
 
 ---
 
-#### 🔹 Functional Component Alternative
+**Functional Component Alternative:**
 
 In functional components, we use:
 
@@ -158,7 +163,7 @@ const MyComponent = React.memo(({ name }) => {
 
 ---
 
-## 🔹 When to Use Pure Components
+**When to Use Pure Components:**
 
 **Use when:**
 
@@ -174,9 +179,9 @@ const MyComponent = React.memo(({ name }) => {
 
 ---
 
-### Q: Difference Between Virtual DOM and Real DOM
+## 3. Difference Between Virtual DOM and Real DOM
 
----
+### 💡 Answer
 
 #### 1️⃣ Real DOM
 
@@ -191,7 +196,7 @@ The **Real DOM** is the actual Document Object Model of the browser that represe
 
 Browser creates a **DOM tree** from this HTML.
 
-### ⚠️ Problem with Real DOM
+**⚠️ Problem with Real DOM:**
 
 When something changes:
 
@@ -203,7 +208,7 @@ When something changes:
 
 ---
 
-## 2️⃣ Virtual DOM
+#### 2️⃣ Virtual DOM
 
 The **Virtual DOM** is a lightweight copy of the Real DOM stored in memory.
 
@@ -218,9 +223,9 @@ Instead of updating the browser DOM directly, React:
 
 ---
 
-### Q3: How does React reconciliation work?
+## 4. How does React reconciliation work?
 
-**Answer:**
+### 💡 Answer
 
 React keeps a Virtual DOM (a JS object representation of UI).
 
@@ -237,9 +242,9 @@ After diffing → minimal changes are applied to the real DOM.
 
 ---
 
-### Q4: How do you optimize re-renders in React?
+## 5. How do you optimize re-renders in React?
 
-**Answer:**
+### 💡 Answer
 
 - Use React.memo for pure components
 - Use useCallback and useMemo to memoize expensive calculations
@@ -250,23 +255,21 @@ After diffing → minimal changes are applied to the real DOM.
 
 ---
 
-### Q5: Difference between useEffect and useLayoutEffect?
+## 6. Difference between useEffect and useLayoutEffect?
 
-**Answer:**
+### 💡 Answer
 
 - **useEffect** runs asynchronously after paint → doesn’t block UI → best for data fetching, subscriptions.
 - **useLayoutEffect** runs synchronously before paint → blocks UI → best for DOM measurements, animations.
 
 ---
 
-### Q6: Why keys in React lists?
+## 7. Why keys in React lists?
 
-**Answer:**
+### 💡 Answer
 
 Keys help React identify which items changed, added, or removed.
 
 Without keys → React may re-render entire list instead of reusing DOM nodes.
 
 Keys must be unique and stable (avoid array index as key).
-
----
