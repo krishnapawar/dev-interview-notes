@@ -97,6 +97,8 @@ Every interview question **must** have its Question Heading separated from its A
 ```
 ├── AGENTS.md                  # Workspace guidelines & rules (this file)
 ├── README.md                  # Global index & technology selector
+├── hr/
+│   └── README.md              # HR round & behavioral interview Q&A
 ├── mern-stack/
 │   ├── README.md              # MERN stack overview & index
 │   ├── javascript/README.md   # JavaScript interview Q&A
