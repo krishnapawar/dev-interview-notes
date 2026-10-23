@@ -9,17 +9,14 @@
 6. [slice vs substring vs substr](#6-slice-vs-substring-vs-substr)
 7. [What is Shallow Copy?](#7-what-is-shallow-copy)
 8. [What is Deep Copy?](#8-what-is-deep-copy)
-9. [jQuery: Add Text to a Div](#9-jquery-add-text-to-a-div)
+9. [How Do You Add Text to a Div in jQuery?](#9-how-do-you-add-text-to-a-div-in-jquery)
 
 ---
 
 ## 1. What is Temporal Dead Zone (TDZ)?
 
-### 💡 Answer
-
-**Interview-Ready Answer:**
-
-> The Temporal Dead Zone is the time between the declaration and initialization of variables declared with let and const, during which accessing them results in a ReferenceError. It ensures variables are not used before initialization.
+> **Interview-Ready Answer:**  
+> The Temporal Dead Zone (TDZ) is the time period between variable binding (hoisting) and its initialization with `let` or `const`, during which accessing the variable throws a `ReferenceError`.
 
 **Applies to:**
 - let ✅
@@ -63,9 +60,13 @@ var a = 10;
 
 ---
 
+
+---
+
 ## 2. What are call, apply, and bind?
 
-### 💡 Answer
+> **Interview-Ready Answer:**  
+> `call`, `apply`, and `bind` are `Function.prototype` methods used to set the `this` context: `call()` invokes the function immediately with comma-separated arguments, `apply()` invokes it immediately with arguments as an array, and `bind()` returns a new copy of the function with bound `this` for later execution.
 
 - These are methods used to control the value of this inside a function.
 - 👉 They belong to Function prototype.
@@ -87,7 +88,7 @@ function greet(age) {
 }
 ```
 
-#### 1️⃣ call()
+**1️⃣ call():**
 **Definition:**
 
 - Calls the function immediately and passes arguments one by one.
@@ -101,7 +102,7 @@ greet.call(user, 25);
 Hello Krishna, Age: 25
 ```
 
-#### 2️⃣ apply()
+**2️⃣ apply():**
 **Definition:**
 
 - Calls the function immediately but arguments are passed as an array.
@@ -115,7 +116,7 @@ greet.apply(user, [25]);
 Hello Krishna, Age: 25
 ```
 
-#### 3️⃣ bind()
+**3️⃣ bind():**
 **Definition:**
 
 - Does NOT call the function immediately.
@@ -133,9 +134,13 @@ Hello Krishna, Age: 25
 
 ---
 
+
+---
+
 ## 3. What is async/await?
 
-### 💡 Answer
+> **Interview-Ready Answer:**  
+> `async/await` is syntactic sugar built on top of Promises in ES2017. An `async` function always returns a Promise, and `await` pauses execution of the async function until the Promise resolves or rejects, making asynchronous code read synchronously without blocking the Event Loop.
 
 async/await is syntactic sugar built on top of Promises in JavaScript.
 
@@ -161,9 +166,13 @@ It makes asynchronous code look and behave like synchronous code, which is easie
 
 ---
 
+
+---
+
 ## 4. What is Event Delegation?
 
-### 💡 Answer
+> **Interview-Ready Answer:**  
+> Event Delegation is a pattern where a single event listener is attached to a common parent element rather than multiple child nodes, leveraging DOM event bubbling to catch events on `event.target` for better memory efficiency and dynamic element support.
 
 Event delegation is a technique in JavaScript where you attach a single event listener to a parent element instead of attaching separate listeners to each child element.
 
@@ -299,9 +308,13 @@ This reduces the number of listeners and handles dynamically added children effi
 
 ---
 
+
+---
+
 ## 5. Difference Between slice() and splice()
 
-### 💡 Answer
+> **Interview-Ready Answer:**  
+> `slice()` returns a shallow copy of a portion of an array without modifying the original array, whereas `splice()` modifies the original array in place by adding, removing, or replacing elements.
 
 | Feature | slice() | splice() |
 |------|------|------|
@@ -355,9 +368,13 @@ console.log(arr); // [1, "a", "b", 4, 5]
 
 ---
 
+
+---
+
 ## 6. slice vs substring vs substr
 
-### 💡 Answer
+> **Interview-Ready Answer:**  
+> `slice(start, end)` extracts a substring and accepts negative indices from the end; `substring(start, end)` treats negative values as 0 and swaps arguments if start > end; `substr(start, length)` extracts characters by count and is deprecated in modern ECMAScript.
 
 | Method | Parameters | Negative Index | Notes |
 |------|------|------|------|
@@ -375,9 +392,13 @@ console.log(arr); // [1, "a", "b", 4, 5]
 
 ---
 
+
+---
+
 ## 7. What is Shallow Copy?
 
-### 💡 Answer
+> **Interview-Ready Answer:**  
+> A shallow copy duplicates top-level primitive properties into a new object, but any nested objects or arrays are copied by reference—meaning mutating a nested property in the clone also mutates the original.
 
 A shallow copy creates a new object, but nested objects/arrays are still shared by reference.
 
@@ -422,9 +443,13 @@ const copy = arr.slice();
 
 ---
 
+
+---
+
 ## 8. What is Deep Copy?
 
-### 💡 Answer
+> **Interview-Ready Answer:**  
+> A deep copy duplicates all properties and recursively copies all nested objects and arrays, creating a completely isolated clone in memory with zero shared references using `structuredClone()` or `JSON.parse(JSON.stringify())`.
 
 A deep copy creates a completely independent copy, including all nested objects and arrays.
 
@@ -464,9 +489,13 @@ const copy = JSON.parse(JSON.stringify(obj));
 
 ---
 
-## 9. jQuery: Add Text to a Div
 
-### 💡 Answer
+---
+
+## 9. How Do You Add Text to a Div in jQuery?
+
+> **Interview-Ready Answer:**  
+> In jQuery, use `$('#myDiv').text('New Text')` to set or replace the text content, `$('#myDiv').append(' Extra Text')` to insert text at the end, or `$('#myDiv').html('<b>Bold</b>')` if inserting formatted HTML markup.
 
 In jQuery, you can add (append, prepend, insert) text to an existing `<div>` in a few ways.
 
@@ -547,3 +576,4 @@ $("#myDiv").append("<strong> Bold Text</strong>");
 ```html
 <div id="myDiv">Hello <strong> Bold Text</strong></div>
 ```
+

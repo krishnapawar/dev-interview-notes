@@ -17,7 +17,7 @@ Welcome to the comprehensive MERN Stack interview revision guide. All interview 
 
 ## ⚡ Quick Index of Questions
 
-### 1. [JavaScript](./javascript/README.md)
+### ⚡ [JavaScript Guide](./javascript/README.md)
 - What is Temporal Dead Zone (TDZ)?
 - What are call, apply, and bind?
 - What is async/await?
@@ -26,18 +26,18 @@ Welcome to the comprehensive MERN Stack interview revision guide. All interview 
 - slice vs substring vs substr
 - What is Shallow Copy?
 - What is Deep Copy?
-- jQuery: Add Text to a Div
+- How Do You Add Text to a Div in jQuery?
 
-### 2. [React](./react/README.md)
+### ⚛️ [React Guide](./react/README.md)
 - What is ReactDOM in React?
-- What is a Pure Component in React? / Normal Component vs Pure Component
+- What is a Pure Component in React? (Normal Component vs Pure Component)
 - Difference Between Virtual DOM and Real DOM
 - How does React reconciliation work?
 - How do you optimize re-renders in React?
 - Difference between useEffect and useLayoutEffect?
 - Why keys in React lists?
 
-### 3. [Node.js & Express](./nodejs/README.md)
+### 🟢 [Node.js & Express Guide](./nodejs/README.md)
 - What is Node.js & explain the architecture
 - What is blocking & non-blocking
 - How to manage concurrency (multiple requests) in Node.js
@@ -58,15 +58,14 @@ Welcome to the comprehensive MERN Stack interview revision guide. All interview 
 - How to deploy a Node application on the server using EC2
 - What is a Production Outage?
 - Session management using Redis
-- Quick Reference Table
 - Difference between setTimeout() and setImmediate() in Node.js
 - Difference between process.nextTick() and setImmediate()
-- Event Loop in Node.js (Phases & Restaurant Analogy)
+- Event Loop in Node.js
 - How does Node.js handle 10,000 concurrent requests with a single thread?
 - Difference between Cluster, Worker Threads, and Child Process in Node.js
 - Event-Driven Architecture in Node.js
 - How does middleware chaining work in Express?
-- Common Default Modules in Node.js (fs, path, http, crypto, etc.)
+- Common Default Modules in Node.js
 - What types of API functions are used in Node.js?
 - What is a Module in Node.js?
 - Main Disadvantages of Node.js?
@@ -74,13 +73,13 @@ Welcome to the comprehensive MERN Stack interview revision guide. All interview 
 - Difference Between Query Params and Request Params?
 - Synchronous vs Asynchronous Process in Node.js?
 
-### 4. [MongoDB & System Design](./mongodb/README.md)
+### 🍃 [MongoDB & System Design Guide](./mongodb/README.md)
 - When would you use $lookup?
 - Difference between findOne() and aggregate().match().limit(1)?
 - How would you design a schema for an e-commerce cart system?
-- Design a scalable chat app with typing indicators
-- SQL vs NoSQL?
-- Biggest challenge in your project?
+- How Would You Design a Scalable Chat App with Typing Indicators?
+- Difference Between SQL and NoSQL Databases?
+- What Was the Biggest Challenge in Your Project and How Did You Solve It?
 
 ---
 
