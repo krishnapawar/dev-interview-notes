@@ -21,6 +21,8 @@ A centralized, comprehensive, practical revision guide for technical and HR inte
 | **🔴 Laravel Framework** | Service container, middleware, eager vs lazy loading, Eloquent relationships, queues | [**Open Laravel Guide**](./laravel/README.md) |
 | **🐘 PHP & Architecture** | Core PHP, OPcache, OOP pillars, SOLID principles, design patterns, production debugging | [**Open PHP Guide**](./php/README.md) |
 | **☁️ AWS Cloud Infrastructure** | EC2 vs Lambda, S3 storage tiers, IAM roles, ALB vs NLB, Auto Scaling, CloudWatch, VPC, deployments | [**Open AWS Guide**](./aws/README.md) |
+| **🧮 Data Structures & Algorithms** | Algorithmic problem-solving patterns, array transformations, string algorithms in PHP and JS | [**Open DSA Guide**](./dsa/README.md) |
+| **🧠 RAG & Generative AI** | Chunking, embeddings, vector DBs (HNSW/IVFFlat), hybrid search, re-ranking, RAG Triad, GraphRAG, security | [**Open RAG Guide**](./rag/README.md) |
 
 ---
 
