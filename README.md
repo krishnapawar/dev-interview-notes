@@ -23,6 +23,8 @@ A centralized, comprehensive, practical revision guide for technical and HR inte
 | **☁️ AWS Cloud Infrastructure** | EC2 vs Lambda, S3 storage tiers, IAM roles, ALB vs NLB, Auto Scaling, CloudWatch, VPC, deployments | [**Open AWS Guide**](./aws/README.md) |
 | **🧮 Data Structures & Algorithms** | Algorithmic problem-solving patterns, array transformations, string algorithms in PHP and JS | [**Open DSA Guide**](./dsa/README.md) |
 | **🧠 RAG & Generative AI** | Chunking, embeddings, vector DBs (HNSW/IVFFlat), hybrid search, re-ranking, RAG Triad, GraphRAG, security | [**Open RAG Guide**](./rag/README.md) |
+| **🤖 AI & Machine Learning** | NumPy arrays, Pandas data preprocessing, ML fundamentals, Scikit-learn, Regression, Trees, Overfitting | [**Open AI-ML Guide**](./AI-ML/README.md) |
+
 
 ---
 

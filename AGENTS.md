@@ -32,6 +32,7 @@ Organize your `.md` files in your repository using standard folder paths:
 | `php/README.md` | **Backend** | `#818cf8` (Indigo) | `Server Language` |
 | `mern-stack/roadmap/README.md` | **Fullstack** | `#ec4899` (Pink) | `Roadmap & Specs` |
 | `rag/README.md` | **AI & Machine Learning** | `#8b5cf6` (Violet) | `GenAI & RAG` |
+| `AI-ML/README.md` | **AI & Machine Learning** | `#8b5cf6` (Violet) | `Machine Learning` |
 
 > 💡 *Note: Any folder path not listed above will safely fallback to the `General` category.*
 
